@@ -1,0 +1,809 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{graphics}
+\graphicspath{./images/}
+\usepackage{url}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,color,amsbsy}
+\usepackage[pagebackref=true,colorlinks]{hyperref}
+\usepackage{tikz,pgf}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+\usepackage{xlop}
+\usepackage{soul}
+\usepackage{xcolor}
+\graphicspath{ {./Images/} }
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+
+\addtolength{\oddsidemargin}{-.75in}
+\addtolength{\evensidemargin}{-.75in}
+\addtolength{\textwidth}{1.75in}
+
+\addtolength{\topmargin}{-.875in}
+\addtolength{\textheight}{1.75in}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	citecolor=magenta
+}
+
+
+\definecolor{xdxdff}{rgb}{0.49019607843137253,0.49019607843137253,1.}
+\definecolor{zzttqq}{rgb}{0.6,0.2,0.}
+\definecolor{qqqqff}{rgb}{0.,0.,1.}
+
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{warning}[theorem]{Warning}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{recall}[theorem]{Recall}
+\newtheorem{observation}[theorem]{Observation}
+
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\p}{\mathbb{P}}
+\newcommand{\e}{\epsilon}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\V}{\mathbf{v}}
+\newcommand{\X}{\mathcal{X}}
+\newcommand{\n}{\mathcal{N}}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\adj}{adj}
+\DeclareMathOperator{\real}{Re}
+\DeclareMathOperator{\imag}{Im}
+\newcommand{\bigO}{\mathcal{O}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\bs}{\boldsymbol}
+\newcommand{\cl}{\overline}
+\newcommand{\inr}[1]{\left\langle #1 \right\rangle}
+\newcommand{\nrm}[1]{\left\| #1 \right\|}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\set}[1]{\left{ #1 \right}}
+\newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+
+\title{Algebra III - Homework 1}
+\author{Sampad Kumar Kar -- BMC201944}
+\date{\today}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{flushleft}
+
+\setcounter{section}{3}
+\section{Problem}
+
+{\bf Funny ring structure.}  Given a ring $R$, show that we get a new ring structure on the same {\it set} $R$ as follows: define a new addition $\oplus$ by $a \oplus b = a + b - 1$ and and a new multiplication $\odot$ by $a \odot b = a + b - ab$. You can prove this by going through the axioms, {\it but that is not the point of this exercise at all}. Instead prove the claim by simultaneously showing that the new ring is actually {\it isomorphic} to the original ring. (The basic observation is that if there is any {\it bijection} $f$ from a group/vector space/ring/whatever structure to some set $S$, then one can make $S$ into the same structure by using $f$ as a dictionary.)
+
+\bigskip
+
+{\bf Solution 4}
+
+\medskip
+
+We are given a ring $(R,+,.)$. Let $f:R\to R'$ be a bijection.
+
+\begin{claim}
+	$(R',\oplus,\odot)$ is a ring, where
+
+	$$x\oplus y := f(f^{-1}(x) + f^{-1}(y))$$ and
+	$$x \odot y := f(f^{-1}(x).f^{-1}(y))$$
+
+	$\forall x,y \in R'$
+\end{claim}
+
+\begin{proof}
+	Firstly, we set the zero of $R'$ to be $0_{R'} = f(0_R)$ and the identity of $R'$ to be $1_{R'} = f(1_R)$.
+
+	\medskip
+
+	{\bf (i)} First, I will show that $(R',\oplus,0_{R'})$ is an Abelian group.
+
+	\medskip
+
+	{\it Identity:}
+
+	\begin{align*}
+		a \oplus 0_{R'} &= f(f^{-1}(a) + f^{-1}(0_{R'})) \\
+		&= f(f^{-1}(a) + 0_R) \\
+		&= f(f^{-1}(a)) = a
+	\end{align*}
+
+	\medskip
+
+	{\it Associativity:}
+
+	\begin{align*}
+		(a \oplus b) \oplus c &= f(f^{-1}(a) + f^{-1}(b)) \oplus c \\
+		&= f((f^{-1}(a) + f^{-1}(b)) + f^{-1}(c)) \\
+		&= f(f^{-1}(a) + (f^{-1}(b) + f^{-1}(c))) \\
+		&= a \oplus f(f^{-1}(b) + f^{-1}(c)) \\
+		&= a \oplus (b \oplus c)
+	\end{align*}
+
+	\medskip
+
+	{\it Commutativity:}
+
+	\begin{align*}
+		a \oplus b &= f(f^{-1}(a) + f^{-1}(b)) \\
+		&= f(f^{-1}(b) + f^{-1}(a)) \\
+		&= b \oplus a
+	\end{align*}
+
+	{\it Inverse:} We show that $f(-f^{-1}(a))$ is the additive inverse of $a$.
+
+	\begin{align*}
+		a \oplus f(-f^{-1}(a)) &= f(f^{-1}(a) + f^{-1}(f(-f^{-1}(a)) \\
+		&= f(f^{-1}(a) + (-f^{-1}(a))) \\
+		&= f(0_R) = 0_{R'}
+	\end{align*}
+
+
+	{\bf (ii)} Now, I will show that $(R',\odot,1_{R'})$ is a monoid.
+
+	\medskip
+
+	{\it Identity:}
+
+	\begin{align*}
+		a \odot 1_{R'} &= f(f^{-1}(a).f^{-1}(1_{R'})) \\
+		&= f(f^{-1}(a).1_R)\\
+		&= f(f^{-1}(a)) = a
+	\end{align*}
+
+	{\it Associativity:}
+
+	\begin{align*}			
+		(a\odot b)\odot c &= (f(f^{-1}(a).f^{-1}(b))\odot c) \\
+		&= f((f^{-1}(a).f^{-1}(b)).f^{-1}(c)) \\
+		&= f(f^{-1}(a).(f^{-1}(b).f^{-1}(c))) \\
+		&= f(a\odot (f^{-1}(b).f^{-1}(c))) \\
+		&= a \odot (b \odot c)
+	\end{align*}
+
+	$(\odot)$ is also commutative.
+
+	\begin{align*}
+		a \odot b &= f(f^{-1}(a).f^{-1}(b)) \\
+		&= f(f^{-1}(b).f^{-1}(a)) \\
+		&= b \odot a
+	\end{align*}
+
+	Lastly we verify the distributive law.
+
+	\begin{align*}
+		a \odot (b \oplus c) &= a \odot (f(f^{-1}(b) + f^{-1}(c))) \\
+		&= f(f^{-1}(a).(f^{-1}(b) + f^{-1}(c))) \\
+		&= f(f^{-1}(a).f^{-1}(b) + f^{-1}(a).f^{-1}(c)) \\
+		&= f(f^{-1}(a).f^{-1}(b)) \oplus f(f^{-1}(a).f^{-1}(c))\\
+		&= (a \odot b) \oplus (a \odot c)
+	\end{align*}
+
+	We can show $(a \oplus b) \odot c = (a \odot c) \oplus (b\odot c) $, by using commutativity of $(\odot)$ and $(\oplus)$ on the above result.
+
+	\medskip
+
+	So, I showed that $(R',\oplus,\odot)$ is a ring.
+				
+\end{proof}
+
+Now, coming back to the problem in hand, just substitute $R' = R$ and consider the map $f:R\to R$ which maps $x \mapsto 1 - x$.
+
+\medskip
+
+I will show that $f$ is a bijection.
+
+$$f(x) = f(y) \implies 1-x = 1-y \implies x =y$$ and
+$$f(1-x) = x$$
+
+This shows $f$ is injective and surjective which means $f$ is a bijection.
+
+\medskip
+
+The inverse map of $f$, say $f^{-1}$ maps $x \mapsto 1-x$ as well.
+
+
+\medskip
+
+Clearly,
+
+\begin{align*}
+	a \odot b &= f(f^{-1}(a).f^{-1}(b)) \\
+	&= f((1-a).(1-b)) = f(1-(a+b)+ab) \\
+	&= (a+b) - ab
+\end{align*}
+
+and
+
+\begin{align*}
+	a \oplus b &= f(f^{-1}(a) + f^{-1}(b)) \\
+	&= f((1-a) + (1-b)) = f(1-((a+b)-1)) \\
+	&= (a+b) -1
+\end{align*}
+
+Hence, the given ring structure is valid and $R'$ is isomorphic to $R$.
+
+\newpage
+
+\setcounter{section}{4}
+\section{Problem}
+
+{\bf Artin: 11.3.3} Find generators for the kernels of the following maps:
+
+(c) $\mathbb{Z}[x] \to \mathbb{R}$ defined by $f(x) \leadsto f(1+ \sqrt{2})$,
+
+(e) $\mathbb{C}[x,y,z] \to \mathbb{C}[t]$ defined by $x \leadsto t$, $y \leadsto t^2$, $z \leadsto t^3$.
+
+\medskip
+
+Artin Chapter 11: 3.3 c and e on kernel of maps from polynomial rings. Find as few (and as simple) generators as you can.
+
+\bigskip
+
+{\bf Solution 5}
+
+\medskip
+
+{\bf Artin: 11.3.3}
+
+{\bf (c)} Consider the polynomial $f(x) = (x-1)^2 - 2 = x^2 -2x - 1 $. Let $c = 1 + \sqrt{2}$.
+
+So, the given map, $x \leadsto c$, actually gives the map $g \leadsto ev_c (g) = g(c)$.
+
+Let $K = ker(ev_c)$ and $I = (1 + \sqrt{2}) = (c)$. We will show that $K = I$.
+
+\medskip
+
+$(I \subseteq K)$ - Clearly, $f \in K$ as $f(c) = 0$, which means $(f) = I \subseteq K$.
+
+\medskip
+
+$(K \subseteq I)$ - For any $g \in K$, $g(c) = 0$. By using division of polynomials in $\mathbb{Z}[x]$, for some $q \in \mathbb{Z}[x]$, $q = fq + Ax + B$, for some $A,B \in \mathbb{Z}$. Now, if we invoke $ev_c$ i=on this, we obtain that $A.c + B = 0$. If $A \ne 0$, then $c = \frac{-B}{A}$, which is contradiction as RHS is a rational, whereas LHS is an irrational. Hence, $A,B = 0$, which means $f|g$, meaning $g \in I \implies K \subseteq I$.
+
+\medskip
+
+Hence, $K = I = (x^2 -2x - 1)$.
+
+\bigskip
+
+{\bf (e)} Let $I = (f_1, f_2) \subset \mathbb{C}[z,y,z]$, where $f_1 = y - x^2$ and $f_2 = z - x^3$.
+
+Let $K$ be the kernel of the map from $\mathbb{C}[x,y,z]$ to $\mathbb{C}[t]$ defined by $x \leadsto t$, $y \leadsto t^2$, $z \leadsto t^3$.
+
+We will show that $I = K$.
+
+\medskip
+
+$(I \subseteq K)$ - Clearly, $f_1,f_2 \in K$, which means $(f_1,f_2) = I \subseteq K$.
+
+\medskip
+
+$(K \subseteq I)$ - For any $g \in K$, $g(t,t^2,t^3) = 0$. Now, we know that $R[x,y,z] \cong R[x,y][z]$ for any ring $R$. So, by division of polynomials in $\mathbb{C}[x,y][z]$, $g(x,y,z) = (z - x^3)q(x,y,z) + r(x,y)$ (as $deg_z (r(x,y)) = 0$). 
+
+Now, $q(x,y) \in \mathbb{C}[x,y]$, and we know that $R[x,y] \cong R[x][y]$ for any ring $R$, which means by division of polynomials in $\mathbb{C}[x][y]$, $r(x,y) = (y-x^2)s(x,y) + u(x)$ (as $deg_y (u(x)) = 0$).
+
+So, we get $g(x,y,z) = (z - x^3)q(x,y,z) + (y-x^2)s(x,y) + u(x)$. Now, $g(t,t^2,t^3) = 0 \implies u(t) = 0 \implies u = 0$, which means $g = f_2.q + f_1.s$, meaning $g \in I \implies K \subseteq I$.
+
+\medskip
+
+Hence, $K = I = (y-x^2,z-x^3)$.
+
+\newpage
+
+\setcounter{section}{5}
+\section{Problem}
+
+{\bf Artin: 11.3.6} An {\it automorphism} of a ring $R$ is an isomoporphism from $R$ to itself. Let $R$ be a ring, and let $f(y)$ be a polynomial in one variable with coefficients in $R$. Prove that the map $R[x,y] \to R[x,y]$ defined by $x\leadsto x + f(y)$, $y \leadsto y$ is an automorphism of $R[x,y]$.
+
+\medskip
+
+{\bf Artin: 11.3.7} Determine the automorphism of the polynomial ring $\mathbb{Z}[x]$.
+
+\medskip
+
+Artin Chapter 11: 3.6 and 3.7 on ring automorphisms of $R[x,y]$ and of $\mathbb{Z}[x]$. Do these exercises cleanly by using substitution principle as much as you can. While it is true that an isomorphism is a bijective ring homomorphism, it may be better to think of it equivalently as a (ring) map $f$ such that there is an inverse (ring) map $g$ in the opposite direction, i.e., such that  $f \circ g$ and $g \circ f$ are the respective identity maps.
+
+\bigskip
+
+{\bf Solution 6}
+
+\medskip
+
+{\bf Artin: 11.3.6}
+
+Consider the following commutative diagram-
+
+\begin{tikzcd}
+{R[x,y]} \arrow[rrdd, "\phi"] \arrow[rrrd, "\psi \circ \phi = id = \gamma"] &  &                             &          \\
+                                                                   &  &                             & {R[x,y]} \\
+R \arrow[uu] \arrow[rr, "1", hook] \arrow[rrru, "2", hook]         &  & {R[x,y]} \arrow[ru, "\psi"] &         
+\end{tikzcd}
+
+
+\medskip
+
+In this diagram, 
+
+$\phi$ maps $x \mapsto x + f(y)$, $y \mapsto y$,
+
+$\psi$ maps $x \mapsto x - f(y)$, $y \mapsto y$ and,
+
+$\gamma$ maps $x \mapsto x$, $y \mapsto y$,
+
+for some $f \in R[y]$.
+
+\medskip
+
+First, by {\it substitution principle}, we extended the inclusion map $1$ from $R$ to $R[x,y]$ (bottom most arrow), to get an unique map, $\phi$ from $R[x,y]$ to $R[x,y]$.
+
+\medskip
+
+Now, we define a map $\psi$ from $R[x,y] to R[x,y]$, as above.
+
+\begin{claim}
+	$\psi \circ \phi = id$
+\end{claim}
+
+\begin{proof}
+	Clearly, $\psi \circ \phi$ maps $x \mapsto x$ ($\psi \circ \phi (x) = \psi (\phi (x)) = \psi (x + f(y)) = \psi(x) + f(y) = x - f(y) + f(y) = x$). Similarly $\psi \circ \phi$ maps $y \mapsto y$.
+
+	\medskip
+
+	By {\it substitution priciple}, we can extend the inclusion map $2$ from $R$ to $R[x,y]$ (diagonal arrow), to get an unique map $\gamma$ from $R[x,y]$ to $R[x,y]$ as defined above.
+
+	\medskip
+
+	But we know that the identity map, $id$ from $R[x,y]$ to $R[x,y]$, also maps $x \mapsto x$ and $y \mapsto y$ and maintains the inclusion of $R$ in $R[x,y]$.
+
+	\medskip
+
+	So, by uniqueness of maps as asserted by the {\it substitution principle}, we get that $\psi \circ \phi = id = \gamma$.
+\end{proof}
+
+\newpage
+
+Similarly if we consider the following commutative diagram, maintaining the maps, we get that $\phi \circ \psi = id = \gamma$.
+
+\medskip
+
+\begin{tikzcd}
+{R[x,y]} \arrow[rrdd, "\psi"] \arrow[rrrd, "\phi \circ \psi = id = \gamma"] &  &                             &          \\
+                                                                   &  &                             & {R[x,y]} \\
+R \arrow[uu] \arrow[rr, "1", hook] \arrow[rrru, "2", hook]         &  & {R[x,y]} \arrow[ru, "\phi"] &         
+\end{tikzcd}
+
+\medskip
+
+From this we conclude that $\phi$ and $\psi$ are inverses of each other and $\phi \circ \psi = \psi \circ \phi = id$, which means $\phi$ is an isomorphism and we are done.
+
+\bigskip
+
+{\bf Artin: 11.3.7}
+
+The let $\phi$ an automorphism of $\mathbb{Z}[x]$. Then $\phi (1) = 1$, then we can show that $\phi (n) = n, \forall n \in \mathbb{Z}$. Now, to determine the whole map, we just need to define where $x$ will be mapped to. Let $x \mapsto f(x)$ in $\phi$.
+
+\medskip
+
+Let $\psi$ be the inverse of $\phi$. Here again, $\psi (1) = 1$ and  $\psi (n) = n, \forall n \in \mathbb{Z}$. Let $x \mapsto g(x)$ in $\psi$.
+
+\medskip
+
+Now, $\phi \circ \psi = id$, which means $\phi \circ \psi (x) = x \implies f (g (x))= x$. Now, $deg(f \circ g) = deg(f).deg(g) $, which means $deg(f).deg(g) = 1 \implies deg(f) = deg(g) = 1$. 
+
+Let $f(x) = Ax + B$ and $g(x) = Cx + D$ for $A,B,C,D \in \mathbb{Z}$ and $A,C \ne 0$. Then $f(g(x)) = x \implies A(Cx +D) + B = x \implies AC x + (AD + B) = x$. This means $AC = 1 \implies A = 1, B = 1 \text{ or } A = -1, B = -1$.
+
+\medskip
+
+So the maps for $\phi$-
+
+$1 \mapsto 1$, $x \mapsto x + A$ or
+
+$1 \mapsto 1$, $x \mapsto -x + A$
+
+with respective inverse maps $\psi$-
+
+$1 \mapsto 1$, $x \mapsto x - A$ or
+
+$1 \mapsto 1$, $x \mapsto -x + A$
+
+for some $A \in \mathbb{Z}$, gives an automorphism of $\mathbb{Z}[x]$.
+
+\newpage
+
+\setcounter{section}{6}
+\section{Problem}
+
+{\bf Artin: 11.3.9}
+
+(a) An element $x$ of a ring $R$ is called {\it nilpotent} if some power is zero. Prove that if $x$ is nilpotent, then $1 + x$ is a unit.
+
+(b) Suppose that $R$ has prime characteristic $p \ne 0$. Prove that if $a$ is nilpotent then $1 + a$ is {\it unipotent}, that is, some power of $1+ a$ is equal to $1$.
+
+\medskip
+
+Artin Chapter 11: 3.9 on nilpotent/unipotent elements. You may appeal to the very standard Frobenius map in exercise 3.8, but prove it for yourself! (The definition of unipotent used here is non-standard. Usual ring theory definition is unipotent = 1 + nilpotent, but here use the given definition.)
+
+\bigskip
+
+{\bf Solution 7}
+
+\medskip
+
+{\bf Artin: 11.3.9}
+
+(a) Suppose $x^k = 0$, for some $k \in \mathbb{Z}_{>0}$.
+
+Then, we know that $(x+1)(1 - x + x^2 - \dots + (-1)^{k-1}x^{k-1}) = (-1)^{k-1}x^k + 1 = 1$ (as $x^k = 0$).
+
+This means $(x+1)$ is an unit as $(x+1).r = 1$ for some $r \in R$.
+
+\medskip
+
+(b) Given $R$ has a prime characteristic $p \ne 0$ means $1 + 1 + \dots +1 \text{ ($p$ times) } =0$.
+
+As $a$ is nilpotent $a^k = 0$ for some $k \in \mathbb{Z}_{>0}$.
+
+\begin{claim}
+	$(1 +a)^p = 1 + a^p$, if $p$ is the characteristic of $R$.
+\end{claim}
+
+\begin{proof}
+	Firstly we know that $px = x + x + \dots +x \text{ (p times) } = x.(1 + 1 + \dots +1 \text{ ($p$ times) }) = x.0 = 0$, for any $x \in R$.
+
+	Now, by {\it binomial theorem}, $(1+a)^p = \sum_{i=0}^{p} \binom{p}{i}a^i$.
+
+	\medskip
+
+	Now, each term has coefficient $\binom{p}{i} = \frac{p!}{(p-i)!i!}$. So, when $i \ne 0$ or $i \ne p$, $\binom{p}{i} = p.q$ for some $q \in \mathbb{Z}_{>0}$. This means all terms $\binom{p}{i}a^i = 0$ for $i \ne 0 \text{ or } p$, which means $(1+a)^p = 1 + a^p$.
+\end{proof}
+
+\begin{claim}
+	$(1+a)^{p^m} = 1 + a^{p^m}$, for any $m \in \mathbb{Z}_{>0}$.
+\end{claim}
+
+\begin{proof}
+	We can show this by induction on $m$. Base, case is covered by {\bf Claim 7.1}.
+
+	$(1 +a)^{p^{m+1}} = (1+a)^{p^m.p} = ((1+a)^{p^m})^p = (1+ a^{p^m})^p$ (by Induction Hypothesis).
+
+	Again, by {\bf Claim 7.1}, $(1+ a^{p^m})^p = 1 + (a^{p^m})^p = 1 + a^{p^{m+1}}$ and we are done.
+\end{proof}
+
+Now, $a^k = 0$ for some $k \in \mathbb{Z}_{>0}$, which means $a^m = 0, \forall m \ge k$.
+
+Now, we can choose $m$ such that $p^m \ge k$, which means $(1+a)^{p^m} = 1 + a^{p^m} = 1 + 0 = 1$, which means $(1+a)$ is unipotent.
+
+\newpage
+
+\setcounter{section}{7}
+\section{Problem}
+
+{\bf Artin: 11.2.2} Let $F$ be a field. The set of all formal power series $p(t) = a_0 + a_1 t + a_2 t^2 + \dots$, with $a_i$ in $F$, forms a ring that is often denoted by $F[[t]]$. By {\it formal} power series we mean that the coefficients form an arbitrary sequence of elements of $F$. There is no requirement of convergence. Prove that $F[[t]]$ is a ring, and determine the units in the ring.
+
+\medskip
+
+{\bf Artin: 11.3.10} Determine all ideals of the ring $F[[t]]$ of formal power series with coefficients in a field $F$.
+
+\medskip
+
+Artin Chapter 11: 2.2 on units in $F[[t]]$ +  3.10 on ideals in $F[[t]]$. Which of the ideals you found are maximal? Which are prime?
+
+\bigskip
+
+{\bf Solution 8}
+
+\medskip
+
+{\bf Artin: 11.2.2}
+
+Firstly, we define a ring structure on $F[[t]]$. 
+
+Let $f(t) = \sum_{n=0}^{\infty} a_n t^n $ and $g(t) = \sum_{n=0}^{\infty} b_n t^n$ be any 2 elements in $F[[t]]$.
+
+(+) - $f(t) + g(t) := \sum_{n=0}^{\infty} (a_n + b_n) t^n$.
+
+(.) - $f(t).g(t) := \sum_{n=0}^{\infty} c_n t^n$, where $c_n = \sum_{k = 0}^{n} a_kb_{n-k}$.
+
+The zero element is $0(t) := \sum_{n=0}^{\infty} 0t^n$.
+
+The identity element is $1(t) := 1 + \sum_{n=1}^{\infty} 0t^n$.
+
+\medskip
+
+\begin{claim}
+	$(F[[t]],+,0)$ is an abelian group.
+\end{claim}
+
+\begin{proof}
+	As $F$ is a field, closure and associativity is taken care of. 
+
+	$0$ is our additive identity and for any $f \in F[[t]]$, if $f(t) = \sum_{n=0}^{\infty} a_nt^n$, then  $(-f)(t) := \sum_{n=0}^{\infty} (-a_n)t^n$ is its additive inverse. 
+
+	Also, for any $f,g \in F[[t]] $, $f(t) + g(t) = g(t) + f(t)$, as $F$ is a field. Hence, $F[[t]]$ is an abelian group on $(+)$.
+\end{proof}
+
+
+
+
+\begin{claim}
+	$(F[[t]],.,1)$ is a monoid.
+\end{claim}
+
+\begin{proof}
+	Clearly, $F[[t]]$ is closed under $(.)$ by definition.
+
+	\medskip
+
+	For associativity, let $f(t) = \sum_{n=0}^{\infty} a_nt^n$, $g(t) = \sum_{n=0}^{\infty} b_nt^n$ and $h(t) = \sum_{n=0}^{\infty} c_nt^n$ be elements of $F[[t]]$. 
+
+	Then, $(f(t).g(t)).h(t) = (\sum_{n=0}^{\infty} d_nt^n) h(t) = \sum_{n=0}^{\infty} e_nt^n$, where $d_n = \sum_{k=0}^{n} a_kb_{n-k}$ and $e_n = \sum_{l=0}^{n} d_lc_{n-l} = \sum_{l=0}^{n}(\sum_{k=0}^{l} a_kb_{l-k})c_{n-l}$.
+
+	Also, $f(t).(g(t).h(t)) = f(t).(\sum_{n=0}^{\infty} x_nt^n) = \sum_{n=0}^{\infty} y_nt^n$, where $x_n = \sum_{k=0}^{n} b_kc_{n-k}$ and $y_n = \sum_{l=0}^{n} a_lx_{n-l} = \sum_{l=0}^{n} x_{l}a_{n-l} = \sum_{l=0}^{n}(\sum_{k=0}^{l} b_kc_{k-l})a_{n-l}$.
+
+	\begin{align*}
+		y_n &= \sum_{l=0}^{n}(\sum_{k=0}^{l} b_kc_{k-l})a_{n-l} \\
+		&= \sum_{l=0}^{n} \sum_{k=0}^{l} a_{n-l}b_kc_{l-k} \\
+		&= \sum_{k=0}^{n} \sum_{l=0}^{k} a_lb_{k-l}c_{n-k} \\
+		&= \sum_{k=0}^{n} (\sum_{l=0}^{k} a_lb_{k-l}) c_{n-k} \\
+		&= \sum_{l=0}^{n} (\sum_{k=0}^{l} a_kb_{l-k}) c_{n-l} = e_n
+	\end{align*}
+
+	This means $(f(t)g(t)).h(t) = f(t).(g(t)h(t))$, implying associativity.
+
+	\medskip
+
+	For commutativity, let $f,g$ be as above.
+
+	\begin{align*}
+		f(t)g(t) &= \sum_{n=0}^{\infty} (\sum_{k=0}^{n} a_kb_{n-k})t^n \\
+		&= \sum_{n=0}^{\infty} (\sum_{k=0}^{n} b_{n-k}a_k)t^n \\
+		&= \sum_{n=0}^{\infty} (\sum_{k=0}^{n} b_{k}a_{n-k})t^n = g(t)f(t)
+	\end{align*}
+
+	\medskip
+
+	And, $1$ is the multiplicative identity.
+
+	Hence, $F[[t]]$ is a monoid and $(.)$ is commutative as well.
+\end{proof}
+
+Now, we will show that $F[[t]]$ satisfies distributive law as well.
+
+Let $f,g,h$ be as above.
+
+\begin{align*}
+	(f(t) + g(t)).h(t) &= (\sum_{n=0}^{\infty} (a_n + b_n) t^n).h(t) \\
+	&= \sum_{n=0}^{\infty} (\sum_{k=0}^{n} (a_k + b_k)c_{n-k}) t^n \\
+	&= \sum_{n=0}^{\infty} (\sum_{k=0}^{n}(a_kc_{n-k} + b_kc_{n-k}))t^n \\
+	&= \sum_{n=0}^{\infty} (\sum_{k=0}^{n} a_kc_{n-k}) t^n + \sum_{n=0}^{\infty} (\sum_{k=0}^{n} b_kc_{n-k}) t^n \\
+	&= f(t)h(t) + g(t)h(t)
+\end{align*}
+
+$h(t).(f(t) + g(t)) = h(t)f(t) + h(t)g(t) $ can be concluded from above using commutativity of $(.)$ and $(+)$.
+
+\medskip
+
+Hence $F[[t]]$ is a ring.
+
+\medskip
+
+Now, we will determine the units of $F[[t]]$.
+
+Let $f(t) = \sum_{n=0}^{\infty} a_n t^n$ be a unit in $F[[t]]$. Then $\exists$ $g(t) = \sum_{n=0}^{\infty} b_n t^n$ in $F[[t]]$ such that $f(t)g(t) = 1(t)$.
+
+Now, $f(t)g(t) = \sum_{n=0}^{\infty} (\sum_{k=0}^{n}a_kb_{n-k}) t^n = 1(t) = 1 + \sum_{n=1}^{\infty} 0t^n$.
+
+This means $a_0b_0 = 1$ and $\sum_{k=0}^{n}a_kb_{n-k} = 0, \forall n \ge 1$.
+
+Since, $a_0b_0$ and $F$ is a field, which means all units must have $a_0 \ne 0$.
+
+\begin{claim}
+	If $f \in F[[t]]$, such that $a_0 \ne 0$ is a unit of $F[[x]]$. 
+\end{claim}
+
+\begin{proof}
+	We construct a $g(t)$ such that $f(t)g(t) = 1(t)$.
+
+	Clearly $\exists b_0 \in F$ such that $a_0b_0 = 1$ as $a_0$ is non-zero.
+
+	We know that $\sum_{k=0}^{n}a_kb_{n-k} = 0, \forall n \ge 1$ and $b_0 = a_0^{-1}$.
+
+	From this we inductively construct $b_n, \forall n \ge 1$.
+
+	Suppose we know all $b_k$ for $k < n$.
+
+	\begin{align*}
+		\sum_{k=0}^{n}a_kb_{n-k} = 0 &\implies a_0b_n = -\sum_{k=1}^{n} a_kb_{n-k} \\
+		&\implies b_n = a_0^{-1}.(-\sum_{k=1}^{n} a_kb_{n-k}).
+	\end{align*}
+
+	Hence, $f$ is a unit of $F[[t]]$ as $f(t)g(t) = 1(t)$ and we are done.
+\end{proof}
+
+This means $f \in F[[t]]$ is an unit iff $a_0 \ne 0$.
+
+\bigskip
+
+{\bf Artin: 11.3.10}
+
+We have $(1(t)) = F[[t]]$, and $(0) = \{0\}$ as the trivial ideals. 
+
+\begin{claim}
+	$(t^m)$ for any $m \in \mathbb{Z}_{>0}$ are the only non-trivial ideals in $F[[t]]$
+\end{claim}
+
+\begin{proof}
+	Let's first define the degree of the formal power series to the smallest $n \in \mathbb{Z}_{>0}$ such that $a_n \ne 0$ (or the smallest $n$ such that coefficient of $x^n$ is non-zero).
+
+	\medskip
+
+	Let $I$ be any non-trivial ideal in $F[[t]]$.
+
+	Let $f \in I$ have the least degree, say $m$ (obviously such a $f$ exists due to {\it Well Ordering Principle}). Let $f(t) = \sum_{n=m}^{\infty} a_nt^n$, such that $a_m \ne 0$.
+
+	Now, I will show that $I = (t^m)$.
+
+	\medskip
+
+	($(t^m) \subseteq I$) Now, $f(t) = a_mt^m + a_{m+1}t^{m+1} + \dots = t^m(a_m + a_{m+1}t + a_{m+2}t^2 + \dots)$, where $a_m \ne 0$.
+
+	By {\bf Claim 8.3}, $g(t) = a_m + a_{m+1}t + a_{m+2}t^2 + \dots$ is an unit in $F[[t]]$. So, $\exists h \in F[[t]]$, such that $h.g=1$.
+
+	Now, $f(t) = t^m.g(t) \in I$. So, $h(t)f(t) = t^m.(h(t) g(t)) = t^m \in I \implies (t^m) \subseteq I$.
+
+	\medskip
+
+	($I \subseteq (t^m)$) Now any $g \in I$ has degree $\ge m$. So if $g(t) = \sum_{n=k}^{\infty} a_nt^n$ (i.e. $a_k \ne 0$ or degree of $g$ is $k$ and $k \ge m$).
+
+	Now, $g(t) = t^m(a_kt^{k-m} + a_{k+1}t^{k-m+1} + a_{k+2}t^{k-m+2} + \dots)$, which means $g \in (t^m) \implies I \subseteq (t^m)$.
+
+	\medskip
+
+	Hence, $I = (t^m)$.
+
+	\medskip
+
+	So, $(t^m),\forall m \in \mathbb{Z}_{>0}$ are the only non-trivial ideals in $F[[t]]$.
+\end{proof}
+
+Therefore, $(0), (1), (t^m),\forall m \in \mathbb{Z}_{>0}$ are the only ideals in $F[[t]]$.
+
+\medskip
+
+Now, $(0)$ and $(t)$ are the only prime ideals in $F[[t]]$. 
+
+\medskip
+
+$(0)$ is a prime ideal because, for any $f,g \ne 0$, $fg \ne 0$.
+
+Also, $(t)$ is prime because if $f,g \notin (t)$, then degree of $f$ and $g$ is zero, which means degree of $fg$ is also zero (this is because $f$, $g$, $fg$ will all have constant terms.)
+
+\medskip
+
+Now, $(t^m)$ is the ideal containing all elements with degree $\ge m$ and if $m >1$, then we can represent the element with degree $m$ as product of 2 power series with degree $1$ and $m-1$ both of which won't belong to $(t^m)$ implying $(t^m)$ is not prime for any $m>1$.
+
+\medskip
+
+Now, $(t)$ is the only maximal ideal because $(0) \subset (t)$ and $(t^m) \subset (t),\forall m > 1$.
+
+\newpage
+
+\setcounter{section}{8}
+\section{Problem}
+
+For $c$ in a ring $D$ and nonzero $f(x)$ in $D[x]$, define the ``multiplicity of $c$ as a root of $f(x)$" to be the largest nonnegative integer $n$ such that $f(x) = (x-c)^n q(x)$ in $D[x]$. Observe that this is well-defined. 
+
+\medskip
+
+(i) In a {\it domain} $D$, show that $\prod_{c \text { root of } f(x)} \, (x - c )^{\text {multiplicity of } c \text { as a root of } f(x)}$ is a factor of  $f(x)$. This generalizes an exercise done in the lecture.
+
+\medskip
+	
+(ii) Find a counterexample to (i) where is $D$ not a domain and $f$ is a {\it monic} polynomial with a root whose multiplicity equals your roll number.
+
+\medskip
+
+(iii)	For a finite field $F$ of cardinality $q$, show that $x^q - x  = \prod_{c \in F} \, (x - c)$. You do NOT need to use the fact that $F[x]$ has unique factorization property. (Hint: the set of nonzero elements in $F$ forms a group under multiplication. The order of each element of a finite group is a factor of the order of the group.)
+
+\bigskip
+
+{\bf Solution 9}
+
+\medskip
+
+Let $m_f(c)$ denote the multiplicity of $c$ as a root of $f$.
+
+\medskip
+
+{\bf (i)} Let $r_f$ denote the set of roots of $f$. I will induct on the number of roots of $f$ or $|r_f|$.
+
+\medskip
+
+Base case is when $|r_f| = 0$, then $\prod_{c\in r_f} \, (x - c )^{m_f(c)} = 1$ and $1$ always divides $f$.
+
+Now, suppose $f$ has $m$ distinct roots and we already have proved the claim for polynomials with $\le m$ roots.
+
+\medskip
+
+Suppose $c_1, c_2, \dots c_k$ are the $k$ distinct roots of $f$. So we have to show that $\prod_{i=1}^{k} (x-c_i)^{m_f(c_i)} | f(x)$.
+
+\medskip
+
+Let $f(x) = (x-c_k)^{m_f(c_k)} g(x)$, where $g(c_k) \ne 0$. Since, $D$ is a {\it domain}, $r_f = \{c_k\}\cup r_g$ (as $g(c_i) = 0$ for $1 \le i \le k-1$). So, by Induction hypothesis $\prod_{i = 1}^{k-1} (x-c_i)^{m_g{c_i}} | g(x)$.
+
+\begin{claim}
+	$m_f(c_i) = m_g(c_i) $ for $1\le i \le (k-1)$.
+\end{claim}
+
+\begin{proof}
+	For any $i$, assume -
+
+	\medskip
+
+	(a) $m_f(c_i) < m_g(c_i)$
+
+	\medskip
+
+	Let $g(x) = (x-c_i)^{m_g(c_i)}h(x)$. Then $f(x) = (x-c_k)^{m_f(c_k)}g(x) = (x-c_k)^{m_f(c_k)}(x-c_i)^{m_g(c_i)}h(x) = (x-c_i)^{m_g(c_i)}q(x)$, 
+
+	which contradicts the definition of $m_f(c_i)$, as $m_f(c_i) < m_g(c_i)$.
+
+	\medskip
+
+	(b) $m_f(c_i) > m_g(c_i)$
+
+	\medskip
+
+	Let $g(x) = (x-c_i)^{m_g(c_i)}h(x) $. Now, $f(x) = (x-c_i)^{m_f(c_i)}s(x) = (x-c_k)^{m_f(c_k)}g(x) =  (x-c_k)^{m_f(c_k)}(x-c_i)^{m_g(c_i)}h(x) = (x-c_i)^{m_g(c_i)}q(x)$, where $q(x) = (x-c_k)^{m_f(c_k)}h(x)$.
+
+	This means $(x-c_i)^{m_f(c_i)}s(x) = (x-c_i)^{m_g(c_i)}q(x) \implies q(x) = (x-c_i)^{m_f(c_i)-m_g(c_i)}s(x)$ (as $D$ is a domain, cancellation is allowed).
+
+	Therefore, $q(c_i) = 0 \implies (c_i-c_k)^{m_f(c_k)}h(c_i) = 0 \implies h(c_i) = 0$, meaning $(x-c_i)|h(x)$, which in turn means $g(x) = (x-c_i)^{m_g(c_i)}h(x) = (x-c_i)^{m_g{c_i} + 1}h'(x) $, for some $h'(x)$, which again contradicts the definition of $m_g{c_i}$.
+
+	\medskip
+
+	Hence, $m_f(c_i) = m_g(c_i)$ for all $1\le i \le k-1$.
+\end{proof}
+
+Hence, by induction hypothesis as mentioned above and {\bf Claim 9.1}, $\prod_{i = 1}^{k} (x-c_i)^{m_f{c_i}} | f(x)$ and we are done.
+
+\newpage
+
+{\bf (ii)} Consider the polynomial $f(x) = x^3(x-\overline{5})^k$, where $f \in \mathbb{Z}_8[x]$ and $k = \text{my roll number}$. Clearly, $\mathbb{Z}_8$ isn't a domain as $\overline{2}^3 = \overline{0}$. So, $f(\overline{2}) = \overline{0} $, but $(x-\overline{2})^3 \not| f(x)$.
+
+\bigskip
+
+{\bf (iii)} $F$ is a field of cardinality $q$, then $F-\{0\}$ is a multiplicative abelian group with cardinality $q-1$, which means $x^{q-1} = 1 \implies x^q = x \implies x^q-x = 0$ for all $x \in F-\{0\}$. So, if $f(x) = x^q - x$, then all $c \in F$ is a root of $f(x)$.
+
+\medskip
+
+Since, $F$ is a field and hence a domain, $\prod_{c \in F} (x-c) | \prod_{c \in F} (x-c)^{m_f(c)}$ which in turn divides $f(x)$ by {\bf (i)}, implying $\prod_{c \in F} (x-c) |f(x)$, which means $f(x) = g(x)h(x)$ where $g(x) = \prod_{c \in F} (x-c)$.
+
+\medskip
+
+Now, if we consider the degrees, $deg(f) = q$ and $deg(g) = q$, and  since, $deg(f) = deg(g) + deg(h) \implies deg(h) = 0$, and since $f$ and $g$ are monic, $h(x) = 1$, which means $f(x) = q(x) = \prod_{c \in F} (x-c)$ and we are done.
+
+
+\end{flushleft}
+\end{document}

@@ -1,0 +1,609 @@
+ \documentclass[11pt]{amsart}
+
+
+\usepackage[all]{xy}
+\usepackage{graphics}
+\usepackage{enumitem}
+\usepackage{epsfig}
+\usepackage{amsmath}
+\usepackage{amscd}
+\usepackage{tikz-cd}
+\usepackage{verbatim}
+\usepackage{pdfpages}
+%\usepackage{showkeys}
+\usepackage{amsfonts,latexsym,amssymb}
+\usepackage{parskip}
+\usepackage{MnSymbol}
+\usepackage{hyperref}
+
+\usepackage{mdwlist}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\cA}{{\mathcal{A}}}   \newcommand{\cB}{{\mathcal{B}}}
+\newcommand{\cC}{{\mathcal{C}}}   \newcommand{\cD}{{\mathcal{D}}}
+\newcommand{\cE}{{\mathcal{E}}}   \newcommand{\cF}{{\mathcal{F}}}
+\newcommand{\cG}{{\mathcal{G}}}   \newcommand{\cH}{{\mathcal{H}}}
+\newcommand{\cI}{{\mathcal{I}}}   \newcommand{\cJ}{{\mathcal{J}}}
+\newcommand{\cK}{{\mathcal{K}}}   \newcommand{\cL}{{\mathcal{L}}}
+\newcommand{\cM}{{\mathcal{M}}}   \newcommand{\cN}{{\mathcal{N}}}
+\newcommand{\cO}{{\mathcal{O}}}   \newcommand{\cP}{{\mathcal{P}}}
+\newcommand{\cQ}{{\mathcal{Q}}}   \newcommand{\cR}{{\mathcal{R}}}
+\newcommand{\cS}{{\mathcal{S}}}   \newcommand{\cT}{{\mathcal{T}}}
+\newcommand{\cU}{{\mathcal{U}}}   \newcommand{\cV}{{\mathcal{V}}}
+\newcommand{\cW}{{\mathcal{W}}}   \newcommand{\cX}{{\mathcal{X}}}
+\newcommand{\cY}{{\mathcal{Y}}}   \newcommand{\cZ}{{\mathcal{Z}}}
+
+\newcommand{\hcP}{\hat{\mathcal{P}}}
+\newcommand{\hcQ}{\hat{\mathcal{Q}}}
+\newcommand{\hcR}{\hat{\mathcal{R}}}
+\newcommand{\hcL}{\hat{\mathcal{L}}}
+\newcommand{\hcM}{\hat{\mathcal{M}}} \newcommand{\hphi}{\hat{\phi}}
+\newcommand{\bbk}{\mathbb{k}}   \newcommand{\bfv}{\mathbf{v}}
+\newcommand{\bfnu}{\mathbf{nu}}  \newcommand{\hXX}{\hat{\mathbb{X}}}
+\newcommand{\bJ}{\mathbf{J}}
+
+\newcommand{\hD}{{\hat{D}}}   \newcommand{\hE}{{\hat{E}}}
+\newcommand{\hF}{{\hat{F}}}   \newcommand{\hH}{{\hat{H}}}
+\newcommand{\hY}{{\hat{Y}}}   \newcommand{\hP}{{\hat{P}}}
+\newcommand{\hT}{{\hat{T}}}   \newcommand{\hQ}{{\hat{Q}}}
+\newcommand{\hq}{{\hat{q}}}
+\newcommand{\hr}{{\hat{r}}}
+\newcommand{\hu}{{\hat{u}}}
+\newcommand{\hv}{{\hat{v}}}
+\newcommand{\hf}{{\hat{f}}}
+\newcommand{\hg}{{\hat{g}}}
+\newcommand{\hw}{{\hat{w}}}
+\newcommand{\hS}{{\hat{S}}}
+\newcommand{\hV}{{\hat{V}}}
+\newcommand{\hG}{{\hat{G}}}
+\newcommand{\hmu}{{\hat{\mu}}}
+\newcommand {\y}{\V{y}}
+\newcommand {\V}[1]{\mbox{\boldmath$#1$}}
+\newcommand{\iExp}{{\mathrm{iExp\,}}}
+
+\newcommand{\htheta}{{\hat{\theta}}}
+
+
+
+\newcommand{\htu}{{\hat{\tilde{u}}}}
+
+
+\newcommand{\hTR}{{\widehat{TR}}}
+\newcommand{\tsigma}{{\tilde{\sigma}}}
+\newcommand{\tphi}{{\tilde{\phi}}}
+\newcommand{\tpsi}{{\tilde{\psi}}}
+\newcommand{\tzeta}{{\tilde{\zeta}}}
+\newcommand{\tdelta}{{\tilde{\delta}}}
+\newcommand{\tgamma}{{\tilde{\gamma}}}
+\newcommand{\tGamma}{{\tilde{\Gamma}}}
+\newcommand{\tlog}{{\widetilde{\log}}}
+
+
+\newcommand{\txi}{{\tilde{\xi}}}
+\newcommand{\tomega}{{\tilde{\omega}}}
+\newcommand{\tH}{{\tilde{H}}}
+\newcommand{\tI}{{\tilde{I}}}
+
+\newcommand{\tX}{{\tilde{X}}}
+\newcommand{\tV}{{\tilde{V}}}
+\newcommand{\tz}{{\tilde{z}}}
+\newcommand{\ty}{{\tilde{y}}}
+\newcommand{\tx}{{\tilde{x}}}
+\newcommand{\te}{{\tilde{e}}}
+\newcommand{\tf}{{\tilde{f}}}
+\newcommand{\tg}{{\tilde{g}}}
+\newcommand{\tu}{{\tilde{u}}}
+\newcommand{\tm}{{\tilde{m}}}
+\newcommand{\tn}{{\tilde{n}}}
+\newcommand{\tilt}{{\tilde{t}}}
+\newcommand{\tT}{{\tilde{T}}}
+\newcommand{\tL}{{\tilde{L}}}
+\newcommand{\tQ}{{\tilde{Q}}}
+\newcommand{\tB}{{\tilde{B}}}
+\newcommand{\tC}{{\tilde{C}}}
+\newcommand{\tD}{{\tilde{D}}}
+\newcommand{\tU}{{\tilde{U}}}
+\newcommand{\utL}{{\underline{\tilde{L}}}}
+\newcommand{\tF}{{\tilde{F}}}\newcommand{\tilh}{{\tilde{h}}}
+\newcommand{\tk}{{\tilde{k}}}
+\newcommand{\tv}{{\tilde{v}}}
+\newcommand{\tw}{{\tilde{w}}}
+\newcommand{\bx}{\mathbf x}
+\newcommand{\bz}{\mathbf z}
+\newcommand{\bu}{\mathbf u}
+\newcommand{\bv}{\mathbf v}
+\newcommand{\bt}{\mathbf t}
+\newcommand{\bi}{\mathbf i}
+\newcommand{\bj}{\mathbf j}
+\newcommand{\bL}{\mathbf L}
+\newcommand{\bN}{\mathbf N}
+\newcommand{\bM}{\mathbf M}
+\newcommand{\bB}{\mathbf B}
+\newcommand{\bA}{\mathbf A}
+\newcommand{\tbz}{{\tilde{\mathbf z}}}
+\newcommand{\hbx}{\hat{\mathbf x}}
+\newcommand{\tcO}{{\tilde{\mathcal{O}}}}
+\newcommand{\tcC}{{\tilde{\mathcal{C}}}}
+\newcommand{\ocC}{{\overline{\mathcal{C}}}}
+\newcommand{\tcR}{{\tilde{\mathcal{R}}}}
+\newcommand{\tcA}{{\tilde{\mathcal{A}}}}
+
+
+
+
+
+
+
+
+\newcommand{\uL}{\underline L}
+\newcommand{\uM}{\underline M}
+\newcommand{\uE}{\underline E}
+
+\newcommand{\chA}{\check A}
+\newcommand{\chE}{\check E}
+\newcommand{\chL}{\check L}
+\newcommand{\chV}{\check V}
+\newcommand{\chv}{\check v}
+\newcommand{\chw}{\check w}
+\newcommand{\chW}{\check W}
+\newcommand{\chM}{\check M}
+\newcommand{\chQ}{\check Q}
+\newcommand{\chsigma}{\check\sigma}
+
+
+
+\newcommand{\uchL}{\underline{\check L}}
+
+
+
+
+
+
+\newcommand{\BA}{\mathbb{A}}  \newcommand{\BB}{\mathbb{B}}
+\newcommand{\CC}{\mathbb{C}}  \newcommand{\EE}{\mathbb{E}}
+\newcommand{\FF}{\mathbb{F}}  \newcommand{\HH}{\mathbb{H}}
+\newcommand{\JJ}{\mathbb{J}}  \newcommand{\LL}{\mathbb{L}}
+\newcommand{\NN}{\mathbb{N}}  \newcommand{\PP}{\mathbb{P}}
+\newcommand{\QQ}{\mathbb{Q}}  \newcommand{\RR}{\mathbb{R}}
+\newcommand{\TT}{\mathbb{T}}  \newcommand{\VV}{\mathbb{V}}
+\newcommand{\XX}{\mathbb{X}}  \newcommand{\WW}{\mathbb{W}}
+\newcommand{\ZZ}{\mathbb{Z}}
+
+\newcommand{\FM}{\mathfrak{M}}
+\newcommand{\fm}{\mathfrak{m}}
+
+
+\newcommand{\isom}{\cong}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\Grass}{\operatorname{Grass}}
+\newcommand{\coker}{\operatorname{coker}}
+\newcommand{\Hilb}{\operatorname{Hilb}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Quot}{\operatorname{Quot}}
+\newcommand{\Pic}{\operatorname{Pic}}
+\newcommand{\NS}{\operatorname{NS}}
+\newcommand{\Sym}{\operatorname{Sym}}
+\newcommand{\id}{\operatorname{I}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\surj}{\twoheadrightarrow}
+\newcommand{\inj}{\hookrightarrow}
+\newcommand{\gr}{\operatorname{gr}}
+\newcommand{\rk}{\operatorname{rk}}
+\newcommand{\reg}{\operatorname{reg}}
+\newcommand{\wt}{\widetilde}
+\newcommand{\del}{{\partial}}
+\newcommand{\delb}{{\overline\partial}}
+
+\newcommand{\oX}{{\overline X}}
+\newcommand{\oD}{{\overline D}}
+\newcommand{\ox}{{\overline x}}
+\newcommand{\ow}{{\overline w}}
+\newcommand{\oz}{{\overline z}}
+\newcommand{\oh}{{\overline{h}}}
+\newcommand{\oalpha}{{\overline \alpha}}
+
+
+
+
+
+\newcommand{\Res}{\operatorname{Res}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\pardeg}{\operatorname{par-deg}}
+\newcommand{\ad}{{ad\,}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\codim}{\operatorname{codim}}
+
+\hyphenation{pa-ra-bo-lic}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbT}{\mathbb{T}}
+\newcommand{\bbU}{\mathbb{U}}
+\newcommand{\bbZ}{\mathbb{Z}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbF}{\mathbb{F}}
+
+
+
+
+
+
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{theorem}[proposition]{Theorem}
+\newtheorem{lemma}[proposition]{Lemma}
+\newtheorem{conjecture}[proposition]{Conjecture}
+\newtheorem{corollary}[proposition]{Corollary}
+
+
+\theoremstyle{definition}
+\newtheorem{definition}[proposition]{Definition}
+\newtheorem{remark}[proposition]{Remark}
+\newtheorem{notation}[proposition]{Notation}
+\newtheorem{example}[proposition]{Example}
+\newtheorem{ex}{Exercise}[section]
+ 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title{CMI UG Calculus 2020 Assignment\\
+ {\tiny One-dimensional Riemann integrals, \underline{due 25 August}}}
+\author{Sampad Kumar Kar - BMC201944}
+\date{\today}
+\maketitle
+
+
+
+
+\begin{enumerate}[wide, labelwidth=!, labelindent=0pt]
+\item Let $S \subset \bbR$ be bounded above. Prove: $a = \sup S$ iff 
+\begin{enumerate}[label=(\alph*)]
+\item $a \ge x$ for all $x \in S$, and
+\item there exists a sequence $x_n$ of elements in $S$ such that $\lim_n x_n=a$.
+\end{enumerate}
+
+\textbf{Solution 1:}
+
+$\Longrightarrow$ $ a = \sup S$. By the definition of supremum (a) is implied. Now we know from definition that for any $\epsilon > 0, \exists x \in S$ such that $a-\epsilon < x < a$. Using this we construct a sequence such that that $\forall n \in \mathbb{N}, x_n \in (a-\epsilon,a)$. Clearly this sequence $x_n$ lies in $S$ and converges to $a$.
+
+$\Longleftarrow$ Clearly from (a), $a$ is an upper bound of $S$. Suppose $a \ne \sup S$. Let $\sup S = s$ This means $a > s$. Consider $\epsilon = \frac{|a-s|}{2}$. Now, clearly there in no $x \in S$ such that $x \in V_{\epsilon}(a)$ (as that would mean $x>s$ which is false). This means no sequence in $S$ can converge to $a$, which is a contradiction. Hence, $\sup S = a$.
+
+
+\item  Let $a<b$ be real numbers. Determine $\sup S$ and $\inf S$ in the following cases (justify the answer in the \emph{second} case): $S=[a,b],\  S=[a,b),\ S=(a,b],\ S=(a,b)$. 
+
+\textbf{Solution 2:}
+\begin{itemize}
+\item $S=[a,b]:$ $\sup S = b$ and $\inf S = a$ .
+\item $S = [a,b):$
+
+$\sup S = b:$ Clearly $b$ is an upper bound of $S$. The sequence $x_n = b-\frac{1}{n}$ is a sequence in $S$ and it converges to $b$. So, by $P1$, $\sup S = b$.
+
+$\inf S = a:$ Clearly $a$ is a lower bound of $S$. The sequence $x_n = a+\frac{1}{n}$ is a sequence in $S$ and it converges to $a$. So, by analogous theorem of $P1$ for infimum, $\inf S = a$.
+
+\item $S=(a,b]:$ By above reasoning, $\sup S = b$ and $\inf S = a$.
+\item $S=(a,b):$ Similarly, $\sup S = b$ and $\inf S = a$.
+\end{itemize}
+
+
+\item Determine $\sup S$ and $\inf S$ in the following cases: 
+\begin{enumerate}[label=(\alph*)]
+\item $S=\{x \in \bbQ|x^2 \le 2\}$,
+\item $S=\{x \in \bbQ|x^2 < 2\}$,
+\item $S=\{x \in \bbQ|x > 0, x^2 \le 2\}$,
+\item $S=\{x \in \bbR|x > 0, x^2 \le 2\}$
+\end{enumerate}
+
+\textbf{Solution 3:}
+
+\begin{enumerate}[label=(\alph*)]
+\item $S=\{x \in \bbQ|x^2 \le 2\}$
+
+\textit{Claim:} $\sup S = \sqrt{2}$
+
+\textit{Proof:} $\sqrt{2}$ is an upper bound of $S$. Suppose its not. This means $\exists x \in S$ such that $x > \sqrt{2} \implies x^2 > 2$, which is a contradiction.
+
+Let $sup S = s$. If $s \ne \sqrt{2}$, then $s < \sqrt{2}$ as $\sqrt{2}$ is an upper bound. This means $s^2 < 2$.
+Now, we arrive at a contradiction by showing that $\exists n \in \bbN$ such that $s + \frac{1}{n} \in S$.
+
+$(s + \frac{1}{n})^2 = s^2 + \frac{2s}{n} + \frac{1}{n^2} \le s^2 + \frac{2s}{n} + \frac{1}{n} = s^2 + \frac{2s+1}{n}$
+
+Our objective is to find an $n$ such that $(s + \frac{1}{n})^2 \le s^2 + \frac{2s+1}{n} < 2$
+
+This means we have to find $n$ such that $n > \frac{2s+1}{s^2-2}$. Notice that the denominator $s^2 - 2$ is always positive, as we assumes $s$ to be the supremum and we showed that any upper bound of $s$ has to have its square greater than or equal to 2 (In this case its not equal as we took $s < \sqrt{2}$). Now, by \textit{Archimedean Property} we can always find $n \in \bbN$ which satisfies the above inequality, hence showing that $s+\frac{1}{n} \in S$. This is a contradiction, hence the supremum of $S$ can't be greater than $\sqrt{2}$. This means $\sup S = \sqrt{2}$
+
+\textit{Claim:} $\inf S = -\sqrt{2}$
+
+\textit{Proof:} We can give an analogous argument as above for infimum as well. 
+
+\item $S=\{x \in \bbQ|x^2 < 2\}$
+
+This case is also similar to above case (a) and with similar arguments we can show that $\sup S = \sqrt{2}$ and $\inf S = -\sqrt{2}$.
+
+\item $S=\{x \in \bbQ|x > 0, x^2 \le 2\}$
+
+The supremum of this case can be found out as in (a) and (b). So, $\sup S = \sqrt{2}$.
+
+\textit{Claim:} $\inf S = 0$
+
+\textit{Proof:} Clearly, $0$ is a lower bound of $S$ by the definition of $S$. Let $s = \inf S$. If $s \ne 0 \implies s > 0$. Also, its easy to verify that $s^2 < 2$ (as $1 \in S$ and $0 < s < 1 \implies 0 < s^2 < 1 < 2$. Now, consider $0 < \frac{s}{2} < s$. Clearly $\frac{s}{2} \in S$. But this is a contradiction. So $ s = 0$ which means $\inf S = 0$.
+
+\item $S=\{x \in \bbR|x > 0, x^2 \le 2\}$
+
+This case is also similar to above case (c) and with similar arguments we can show that $\sup S = \sqrt{2}$ and $\inf S = 0$.
+
+\end{enumerate}
+
+\item Which of the following functions on $(-1,1)$ are uniformly continuous? 
+
+\begin{enumerate}[label=(\alph*)]
+\item \[
+f(x)=
+\begin{cases}
+1\ \ if \ \ \textup{$x \ge 0$}\\
+-1 \ \ if \ \ \textup{$x < 0$}
+\end{cases}
+\]
+\item $f(x)=x$
+\item $f(x)=\tan \frac{\pi x}{2}$
+\end{enumerate}
+
+\textbf{Solution 4:}
+
+\begin{enumerate}[label=(\alph*)]
+
+\item This function is \textit{not} uniformly continuous on $(-1,1)$ as it is discontinuous at the point $x = 0$.
+
+\item This function is uniformly continuous on $(-1,1)$. Consider any $\epsilon > 0$.
+
+$|f(x) - f(y)| < \epsilon \implies |x-y| < \epsilon$. Choose $\delta = \epsilon$.
+
+Clearly $\forall x,y \in (-1,1)$ s.t. $|x-y|<\delta \implies |f(x)-f(y)|<\epsilon$.
+
+\item This function is not uniformly continuous on $(-1,1)$. Firstly, we know that $tan(\frac{\pi x}{2})$ is unbounded in the interval $(-1,1)$.
+
+We will now use the \textit{Sequential Criterion for absence of Uniform Continuity} to show that this function is not uniformly continuous. The theorem says -
+
+A function $f:A \to \bbR$ fails to be uniformly continuous on $A$ if and only if $\exists \epsilon_o > 0$ and two sequences $x_n$ and $y_n$ in $A$ such that $|x_n - y_n| \to 0$ but $|f(x_n)-f(y_n)|>\epsilon_o, \forall n$.
+
+Now, consider the sequence $x_n = 1-\frac{1}{2n}$ and $y_n = 1-\frac{1}{n}$. Notice that $x_n$ and $y_n$ both lie in $(-1,1)$ and $|x_n - y_n| \to 0$. We will show that for some $\epsilon_o > 0$, $|tan(\frac{\pi x_n}{2}) - tan(\frac{\pi y_n}{2})|>\epsilon_o, \forall n$.
+
+Now, $tan(\frac{\pi x_n}{2}) = tan(\frac{\pi}{2}(1-\frac{1}{2n})) = cot(\frac{\pi}{4n})$. Similarly, $tan(\frac{\pi y_n}{2}) = cot(\frac{\pi}{2n})$.
+
+Now, $|f(x_n) - f(y_n)| = |tan(\frac{\pi x_n}{2}) - tan(\frac{\pi y_n}{2})| = |cot(\frac{\pi}{4n})-cot(\frac{\pi}{2n})| = |\frac{cos(\frac{\pi}{4n})}{sin(\frac{\pi}{4n})}-\frac{cos(\frac{\pi}{2n})}{sin(\frac{\pi}{2n})}| = |\frac{sin(\frac{\pi}{2n}).cos(\frac{\pi}{4n})-sin(\frac{\pi}{4n}).cos(\frac{\pi}{2n})}{sin(\frac{\pi}{4n}).sin(\frac{\pi}{2n})}| = |\frac{sin(\frac{\pi}{4n})}{sin(\frac{\pi}{4n}).sin(\frac{\pi}{2n})}|=|\frac{1}{sin(\frac{\pi}{2n})}| \ge 1$.
+
+Here, our required $\epsilon_o = 1$. So, $f$ is not uniformly continuous.
+
+\end{enumerate}
+
+\item Is the function $\log  x$ uniformly continuous on $[1,\infty)$? 
+
+\textbf{Solution 5:}
+
+Yes, the function $\log x$ is uniformly continuous on $[1,\infty)$.
+
+For any given $\epsilon >0$,(assuming W.L.O.G. $x > y$), if $|f(x)-f(y)|<\epsilon \implies |\log x - \log y|<\epsilon \implies |\log \frac{x}{y}| < \epsilon \implies \frac{x}{y} < e^{\epsilon} \implies \frac{x}{y} - 1 < e^{\epsilon} -1 \implies \frac{x-y}{y} < e^{\epsilon} -1$.
+
+Now, we know that $y \ge 1$. So, $\frac{x-y}{y} < x-y < e^{\epsilon} -1$. Choose $\delta = e^{\epsilon} -1$. This gives the corresponding $\delta$ for each $\epsilon$, proving $f$ is uniformly continuous.
+
+\item  Let $f$ a continuously differentiable\footnote{Recall that this means: $f$ is differentiable and $f'$ is continuous.} function defined on an \emph{open} interval.  What is a natural condition on $f'$ that will guarantee that $f$ is uniformly continuous? Justify your answer. 
+
+\textbf{Solution 6:}
+
+We will show that if $f'$ is bounded on an open interval (say $O$), then $f$ is uniformly continuous in that interval.
+
+Let $f'$ be bounded and let $M>0$, be its bound.
+
+Now, $\forall x,y \in O$, if $x<y$, then $[x,y]$ is a closed interval contained in $O$. Now, applying \textit{Mean Value Theorem} over the interval $[x,y]$, we know that $\exists c \in [x,y]$ such that $\frac{f(x)-f(y)}{x-y} = f'(c) \le M \implies |f(x)-f(y)| \le M|x-y|$. Note that this inequality is true for any $x,y \in O$.
+
+Now, consider any $\epsilon>0$. Choose $\delta = \frac{\epsilon}{M}$. And from above inequality we can verify that $\forall x,y \in O$ such that $|x-y| < \delta \implies |f(x) - f(y)| < \epsilon$. This shows that $f$ is uniformly continuous.
+
+\item Prove the following statements. (This is essentially Theorem 6.12 of Rudin.)
+
+\begin{enumerate}[label=(\alph*)]
+\item If $f,g$ are Riemann integrable on $[a,b]$, then so are $f+g$, and $fg$, and
+\begin{equation*}
+\begin{split}
+\int_a^b (f+g)(x) dx&= \int_a^b f(x) dx +\int_a^b g(x) dx\\
+\int_a^b cf(x) dx &= c\int_a^b f(x) dx\ \textup{if $c$ is a constant.}
+\end{split}
+\end{equation*}
+
+\item If $f,g$ are Riemann integrable on $I = [a,b]$ and $f(x) \le g(x), x \in I$, then
+\[
+\int_a^b f(x) dx  \le \int_a^b g(x) dx
+\]
+
+\item If $f$ is Riemann integrable on $[a,b]$ and $a < c <b$, then (the restriction of)   $f$ is Riemann integrable on $[a,c]$ and $[c,b]$ and
+\[
+\int_a^b f(x) dx= \int_a^c f(x) dx+\int_c^b f(x) dx
+\]
+
+\item Let us agree that  \emph{a complex-valued function $f=f_r+if_i$ defined on $I=[a,b]$ will be called Riemann integrable} if its real and imaginary parts $f_r,f_i$ are Riemann Integrable; in which case, we define
+\[
+\int_a^b f(x) dx  \equiv  \int_a^b f_r(x) dx + i \int_a^b f_i(x) dx \ .
+\]
+Prove that if $f$ is Riemann integrable, then $|f|$ is Riemann integrable, and that
+\[
+|\int_a^b f(x) dx| \le \int_a^b |f(x)| dx
+\]
+
+\end{enumerate} 
+
+\textbf{Solution 7:}
+
+Notation: $\int_a^b f(x) dx = \int_a^b f$, unless I have explicitly specified otherwise.
+
+\begin{enumerate}[label=(\alph*)]
+
+\item
+
+First, I will show that if $f$ and $g$ are Riemann integrable on $[a,b]$, then $f+g$ is also Riemann integrable on the same interval and $\int_a^b (f+g) = \int_a^b f + \int_a^b g$
+
+We know that $f$ is integrable over an interval $[a,b]$ if and only if $\exists$ a sequence of partitions $P_n$ of $[a,b]$ such that $U(P_n,f)-L(P_n,f) \to 0$ and in this case $\int_a^b f = \lim U(P_n,f) = \lim L(P_n,f)$. We use this and the \textit{Algebraic Limit Theorem}. (The Algebraic Limit Theorem states that, if $x_n \to x$ and $y_n \to y$ are two convergent sequences, then the sequence $x_n + y_n \to x+y$. Similarly, it also states that given any constant $k \in \bbR$, the sequence $k x_n \to k x$).
+
+Given $f$ and $g$ are integrable, let $P_{f,n}$ and $P_{g,n}$ be a sequence of partitions of $[a,b]$ respectively for $f$ and $g$ such that $U(P_{f,n},f)-L(P_{f,n},f) \to 0$ and $U(P_{g,n},g)-L(P_{g,n},g) \to 0$.
+
+Now, consider taking the refinements of $P_{f,n}$ and $P_{g,n}$. Let $P_n = P_{f,n} \cup P_{g,n}$. Clearly, $U(P_{n},f)-L(P_{n},f) \to 0$ and $U(P_{n},g)-L(P_{n},g) \to 0$. This also means $\int_a^b f = \lim U(P_n,f) = \lim L(P_n,f)$ and $\int_a^b g = \lim U(P_n,g) = \lim L(P_n,g)$.
+
+Also, $U(P_n,f+g) = U(P_n,f) + U(P_n,g)$ and $L(P_n,f+g) = L(P_n,f) + L(P_n,g)$.
+
+So, clearly using above and \textit{Algebraic Limit Theorem}, $U(P_n,f+g) - L(P_n,f+g) = U(P_n,f) + U(P_n,g) - (L(P_n,f) + L(P_n,g)) = (U(P_{n},f)-L(P_{n},f)) + (U(P_{n},g)-L(P_{n},g)) \to 0 + 0 = 0$.
+
+This means $f+g$ is Riemann integrable and it evaluates to $\int_a^b (f+g) = \lim U(P_n,f+g) = \lim L(P_n,f) + \lim U(P_n,g) = \int_a^b f + \int_a^b g$.
+
+Similarly, for $k \ge 0$, $U(P_n,k f) = k U(P_n,f)$ and $L(P_n,k f) = k L(P_n,f)$. So, by using this and \textit{Algebraic Limit Theorem}, $U(P_n,k f) - L(P_n,k f) = k (U(P_{n},f)-L(P_{n},f)) \to k.0 = 0$. For $k < 0$, $U(P_n,k f) = k L(P_n,f)$ and $L(P_n,k f) = k U(P_n,f)$ (Only the inequality get reversed). So, by using this and \textit{Algebraic Limit Theorem}, $U(P_n,k f) - L(P_n,k f) = -k (U(P_{n},f)-L(P_{n},f)) \to -k.0 = 0$. This means $k f$ is Riemann integrable and it evaluates to $\int_a^b k f = \lim U(P_n,k f) = k \lim U(P_n,f) = k \int_a^b f$.
+
+Now, we will show that $f g$ is also Riemann integrable.
+
+\textit{Claim:} If $f$ is Riemann integrable then $f^2$ is also Riemann integrable.
+
+\textit{Proof:} Consider the sequence of partitions $P_n$ as above, satisfying the requisite properties. Now $f$ is Riemann integrable means $f$ is bounded in the interval $[a,b]$. Let $M>0$ be the bound, i.e. $|f(x)| \le M \forall x$.
+
+We know that for any partition $P$, $U(P,f) - L(P,f) = \sum_i (M_i - m_i).l(I_i)$ where $M_i$ and $m_i$ denotes the supremum and infimum of $f$ in the $i^{th}$ sub-interval $I_i$ of $[a,b]$ in the partition.
+
+For any $x,y \in [a,b]$, $|f^2 (x) - f^2 (y)| = |f(x) + f(y)||f(x) - f(y)| \le 2M (f(x) - f(y))$.
+
+Hence, by above result $M_i^2 - m_i^2 \le 2M (M_i - m_i)$.
+
+Now, $U(P,f^2) - L(P,f^2) = \sum_i (M_i^2 - m_i^2).l(I_i) \le \sum_i 2M (M_i - m_i).l(I_i) = 2M (U(P,f) - L(P,f))$ and this is true for any partition $P$ of $[a,b]$.
+
+So, for the sequence of partitions $P_n$, $U(P_{n},f)-L(P_{n},f) \to 0 \implies U(P_{n},f^2)-L(P_{n},f^2) \to 0$.
+
+So, $f^2$ is Riemann integrable in $[a,b]$.
+
+Now, we use this to show that $f g$ is Riemann integrable.
+
+$f g = \frac{1}{2} ((f + g)^2 - f^2 - g^2)$. We showed, $f+g$ is integrable, meaning $(f+g)^2$ is integrable and $f^2$ and $g^2$ are integrable. Now, using the fact that sum of integrable function are integrable, $f g$ is also Riemann integrable.
+
+\item 
+
+\textit{Claim:} If $f(x) \ge 0, \forall x$, then $\int_a^b f \ge 0$.
+
+\textit{Proof:} Clearly for, any partition $P$, $U(P,f) \ge 0$. As $f$ is integrable, consider the sequence $P_n$ as in (a). $\int_a^b f = \lim U(P_n,f) \ge 0$ by \textit{Order Limit Theorem}. (Order Limit Theorem says that if $x_n \gr a$ is a convergent sequence then, $x_n$ converges to a limit greater than or equal too $a$).
+
+Now, consider the function $h = g - f$. Clearly, $h(x) \ge 0, \forall x$. Now using previous result and results of (a), $\int_a^b h = \int_a^b g - \int_a^b f \ge 0 \implies \int_a^b f \le \int_a^b g$.
+
+\item
+
+We first show that if $f$ is Riemann integrable on $[a,b]$ and $a < c <b$, then (the restriction of) $f$ is Riemann integrable on $[a,c]$ and $[c,b]$.
+
+Now, if $f$ is Riemann integrable on $[a,b]$, then for any $\epsilon > 0, \exists$ a partition $P$ such that $U(P,f) - L(P,f) < \epsilon$. Now, refining the partition P will further decrease the difference (as we proved in class). So, we introduce a partition at $c$ (if it is not already there). Let $P_1 = P \cap [a,c]$ be a partition of $[a,c]$ and $P_1 = P \cap [c,b]$ be a partition of $[c,b]$. It follows that $U(P_1,f) - L(P_1,f) < \epsilon$ and $U(P_2,f) - L(P_2,f) < \epsilon$ implying that $f$ is integrable over the intervals $[a,c]$ and $[c,b]$.
+
+Now, we will show that $\int_a^b f = \int_a^c f + \int_c^b f$.
+
+Let $P , P_1, P_2$ be as above. 
+
+We know that $\int_a^b f \le U(P,f) \le L(P,f) + \epsilon = (L(P_1,f) + L(P_2,f)) + \epsilon \le \int_a^c f + \int_c^b f + \epsilon$ and this is true for any arbitrary $\epsilon > 0$. This means $\int_a^b f \le \int_a^c f + \int_c^b f$.
+
+Now, $\int_a^c f + \int_c^b f \le U(P_1,f) + U(P_2,f) \le (L(P_1,f) + \epsilon) + (L(P_2,f) + \epsilon) = (L(P_1,f) + L(P_2,f)) + 2\epsilon = L(P,f) + 2\epsilon \le \int_a^b f + 2\epsilon$ and this is true for any arbitrary $\epsilon > 0$. This means $\int_a^b f \ge \int_a^c f + \int_c^b f$.
+
+From this we can conclude that $\int_a^b f = \int_a^c f + \int_c^b f$.
+
+\item 
+
+\textit{Claim:} If a Riemann integrable function $f$ such that $f(x) \ge 0, \forall x$, then $\sqrt{f}$ is also integrable.
+
+\textit{Proof:} Consider a sequence of partitions $P_n$ as in above problems, satisfying the requisite properties. Now $f$ is Riemann integrable means $f$ is bounded in the interval $[a,b]$. Let $m = \inf{x \in [a,b]} f(x)$. Now $m \ge 0$ as $0$ is a lower bound of $f(x)$. (We will ignore the trivial cases when $m = 0$, so here we are only considering $m > 0$.)
+
+Now, $\forall x,y \in [a,b]$, $|\sqrt{f(x)} - \sqrt{f(y)}| = \frac{|f(x) - f(y)|}{\sqrt{f(x)} + \sqrt{f(y)}} \le \frac{1}{2m}|f(x) - f(y)|$.
+
+Let $M_i, m_i$ be as defined in (a). From above result, $\sqrt{M_i} - \sqrt{m_i} \le \frac{1}{2m} (M_i - m_i)$.
+
+Now, $U(P,\sqrt{f}) - L(P,\sqrt{f}) = \sum_i (\sqrt{M_i}-\sqrt{m_i}).l(I_i) \le \sum_i \frac{1}{2m} (M_i - m_i).l(I_i) = \frac{1}{2m} (U(P,f) - L(P,f))$ and this is true for any partition $P$ of $[a,b]$.
+
+So, for the sequence of partitions $P_n$, $U(P_{n},f)-L(P_{n},f) \to 0 \implies U(P_{n},\sqrt{f})-L(P_{n},\sqrt{f}) \to 0$.
+
+So, $\sqrt{f}$ is Riemann integrable in $[a,b]$.
+
+Now, by definition $f$ is Riemann integrable means $f_r, f_i$ are also integrable. Now, by definition $f = f_r + i f_i$. So, $|f| = |f_r + i f_i| = \sqrt{f_r^2 + f_i^2}$. Let $g = f_r^2 + f_i^2$. As proved in (a) if $f$ is integrable, then $f^2$ is also integrable, also if $f$ and $g$ are integrable, then $f+g$ is integrable as well. So, $g$ is integrable. Now, $|f| = \sqrt{g}$. As showed above, $g$ is integrable and $g(x)\ge 0, \forall x$. So, $|f| = \sqrt{g}$ is also Riemann integrable.
+
+We will now show that $|\int_a^b f| \le \int_a^b |f|$.
+
+Now $f = f_r + i f_i$, and $|f| = \sqrt{f_i^2 + f_r^2}$.
+
+Also, given that $\int_a^b f = \int_a^b f_r+ i \int_a^b f_i$. Let $R = \int_a^b f_r$ and $C = \int_a^b f_i$.
+
+For proving this we make use of the \textit{Cauchy-Schwartz Inequality}, i.e. $ab + cd \le \sqrt{a^2 + c^2}.\sqrt{b^2 + d^2}$.
+
+By using above inequality, $f_r R + f_i C \le \sqrt{f_i^2 + f_r^2}.\sqrt{R^2 + C^2}$. Integrating on both sides from $a$ to $b$ we obtain the following- $R (\int_a^b f_r) + C (\int_a^b f_i) \le \sqrt{R^2 + C^2} (\int_a^b \sqrt{f_i^2 + f_r^2}) \implies R^2 + C^2 \le \sqrt{R^2 + C^2}(\int_a^b |f|) \implies \sqrt{R^2 + C^2} \le \int_a^b |f| \implies |\int_a^b f| \le \int_a^b |f|$. Hence, we are done.
+
+\end{enumerate}
+
+The following problems are (with minor changes) taken from Rudin. 
+
+\item (Holder's inequality) Let $p,q$ be positive real numbers satisfying
+\[
+\frac{1}{p} + \frac{1}{q} =1 
+\]
+(These  are said to be \emph{conjugate exponents} to each other. Note that $p=2,q=2$ are conjugate. Note also the ``limiting cases'' $p=1,q=\infty$, $p=\infty, q=1$.)
+\begin{enumerate}[label=(\alph*)]
+\item If $u \ge 0, \ v \ge 0$, prove that
+\[
+uv \le \frac{u^p}{p}+\frac{v^q}{q}
+\]
+(Hint: Reduce to proving the case when $u=1$ and $0 \le v \le 1$. When $v=0$ or $v=1$, the inequality is clear; now use convexity. )
+\item  If $f,g$ are Riemann integrable non-negative functions, then
+\[
+\int_a^b fg dx  \le \{\int_a^b f^p dx\}^{\frac{1}{p}} \{\int_a^b g^q dx\}^{\frac{1}{q}}
+\]
+(Hint: Reduce to the case when both factors on the right are equal to one. Then use (a).)
+\item If $f,g$ are complex-valued and Riemann integrable,
+\[
+|\int_a^b fg dx|  \le \{\int_a^b |f|^p dx\}^{\frac{1}{p}} \{\int_a^b |g|^q dx\}^{\frac{1}{q}}
+\]
+
+\end{enumerate} 
+
+\textbf{Solution 8:}
+\begin{enumerate}[label=(\alph*)]
+
+\item
+
+Define a function $f(u) := \frac{u^p}{p}+\frac{v^q}{q} - u v$.We will show that $f(u) \ge 0, \forall u,v \ge 0$. For this, we will show that the minima of this function is greater or equal to $0$.
+
+First, we find a point of extrema. $f'(u) = u^{p-1} - v = 0 \implies u = v^{\frac{1}{p-1}} = v^{q-1}$ (as $(p-1)(q-1)= 1$, because $p$ and $q$ are Holder's conjugates). Notice, that $v^{q-1} \ge 0, \forall v \ge 0$.
+
+Now, we will verify that the point $v^{q-1}$ is indeed the point of minima. Notice that $f''(v^{q-1}) = (p-1)(v^{q-1})^{p-2} = (p-1) v^{(q-1)(p-2)} = (p-1) v^{(q-1)(p-1-1)} = (p-1) v^{(q-1)(p-1)-(q-1)} = (p-1) v^{1-(q-1)} = (p-1) v^{2-q} \ge 0, \forall v \ge 0$. So, indeed
+$v^{q-1}$ is a point of minima.
+
+This means $f(u) \ge f(v^{q-1}), \forall u \ge 0 \implies f(u) \ge \frac{(v^{q-1})^{p}}{p} + \frac{v^q}{q} - v^q = \frac{v^{p(q-1)}}{p} - \frac{v^q}{p} = \frac{v^{(p-1+1)(q-1)}}{p} - \frac{v^q}{p} = \frac{v^{(p-1)(q-1) + (q-1)}}{p} - \frac{v^q}{p} = \frac{v^q}{p} - \frac{v^q}{p} = 0$. Which means $\frac{u^p}{p}+\frac{v^q}{q} - u v \ge 0 \implies uv \le \frac{u^p}{p}+\frac{v^q}{q}$.
+
+\item
+
+First, we consider the case where $\int_a^b f = 0$. (Analogous case would be $\int_a^b g = 0$, which can be shown in a similar fashion). Note, that $f,g$ are non negative bounded functions. Let $M>0$ be the bound of $g$. As $\int_a^b f = 0 = L(f) = U(f)$, for any partition $P$, $0 \le U(fg) \le U(P,fg) \le M U(P,f)$. Now taking supremum we get, $0 \le U(fg) \le B U(f) = 0$. So, $\int_a^b fg = U(fg) = 0$. Hence, the inequality is satisfied as RHS is always greater than or equal to $0$.
+
+Now, let $u = \frac{f}{(\int_a^b f^p)^{\frac{1}{p}}}$ and $v = \frac{g}{(\int_a^b g^q)^{\frac{1}{q}}}$. Notice that $\int_a^b u^p = 1 = \int_a^b v^q$. Now use the inequality proved in part (a), i.e. $uv \le \frac{u^p}{p}+\frac{v^q}{q}$. Integrating on both sides from $a$ to $b$ we obtain the following- $\frac{\int_a^b fg}{(\int_a^b f^p)^{\frac{1}{p}}.(\int_a^b g^q)^{\frac{1}{q}}} \le \frac{\int_a^b u^p}{p}+\frac{\int_a^b v^q}{q} = \frac{1}{p} + \frac{1}{q} = 1 \implies \int_a^b fg \le (\int_a^b f^p)^{\frac{1}{p}}.(\int_a^b g^q)^{\frac{1}{q}}$. Hence, we are done.
+
+\item
+
+From 8(b) and 7(d), $|\int_a^b fg| \le \int_a^b |fg| \le (\int_a^b |f|^p)^{\frac{1}{p}}.(\int_a^b |g|^q)^{\frac{1}{q}}$. Hence, we are done.
+
+\end{enumerate} 
+
+\item For Riemann integrable (possibly complex-valued) $u$, define
+\[
+||u||_2 \equiv \{\int_a^b |u(x)|^2 dx\}^\frac{1}{2}
+\]
+Prove that if $f,g,h$ are Riemann integrable,
+\[
+||f-h||_2 \le ||f-g||_2+||g-h||_2
+\]
+\end{enumerate}
+
+\textbf{Solution 9:}
+
+Note, that if $f,g,h$ are Riemann integrable, then there sum and differences are also Riemann integrable.
+
+We will first prove the Triangle inequality, i,e $||f + g||_2 \le ||f||_2 + ||g||_2$.
+
+$||f + g||_2 \le ||f||_2 + ||g||_2 \iff (\int_a^b |f+g|^2)^{\frac{1}{2}} \le (\int_a^b |f|^2)^{\frac{1}{2}} + (\int_a^b |g|^2)^{\frac{1}{2}} \iff \int_a^b |f+g|^2 \le ((\int_a^b |f|^2)^{\frac{1}{2}} + (\int_a^b |g|^2)^{\frac{1}{2}})^2 \iff \int_a^b |f|^2 + \int_a^b |g|^2 + 2 \int_a^b |fg| \le \int_a^b |f|^2 + \int_a^b |g|^2 + 2 (\int_a^b |f|^2)^{\frac{1}{2}}.(\int_a^b |g|^2)^{\frac{1}{2}} \iff \int_a^b |fg| \le (\int_a^b |f|^2)^{\frac{1}{2}}.(\int_a^b |g|^2)^{\frac{1}{2}}$, which is true by 8(c). So, the Triangle inequality holds.
+
+Now, by Triangle inequality, $||(f-g) + (g-h)||_2 \le ||f-g||_2 + ||g-h||_2 \implies ||f-h||_2 \le ||f-g||_2 + ||g-h||_2$. Hence, we are done.
+
+\end{document}

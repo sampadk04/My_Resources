@@ -1,0 +1,135 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{graphics}
+\graphicspath{./images/}
+\usepackage{url}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,color,amsbsy}
+\usepackage[pagebackref=true,colorlinks]{hyperref}
+\usepackage{tikz,pgf}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+\usepackage{xlop}
+\usepackage{soul}
+\usepackage{xcolor}
+\graphicspath{ {./Images/} }
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+
+\addtolength{\oddsidemargin}{-.75in}
+\addtolength{\evensidemargin}{-.75in}
+\addtolength{\textwidth}{1.75in}
+
+\addtolength{\topmargin}{-.875in}
+\addtolength{\textheight}{1.75in}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	citecolor=magenta
+}
+
+
+\definecolor{xdxdff}{rgb}{0.49019607843137253,0.49019607843137253,1.}
+\definecolor{zzttqq}{rgb}{0.6,0.2,0.}
+\definecolor{qqqqff}{rgb}{0.,0.,1.}
+
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{warning}[theorem]{Warning}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{recall}[theorem]{Recall}
+\newtheorem{observation}[theorem]{Observation}
+
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\p}{\mathbb{P}}
+\newcommand{\e}{\epsilon}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\V}{\mathbf{v}}
+\newcommand{\X}{\mathcal{X}}
+\newcommand{\n}{\mathcal{N}}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\adj}{adj}
+\DeclareMathOperator{\real}{Re}
+\DeclareMathOperator{\imag}{Im}
+\newcommand{\bigO}{\mathcal{O}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\bs}{\boldsymbol}
+\newcommand{\cl}{\overline}
+\newcommand{\inr}[1]{\left\langle #1 \right\rangle}
+\newcommand{\nrm}[1]{\left\| #1 \right\|}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\set}[1]{\left{ #1 \right}}
+\newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+
+\title{Problem 8}
+\author{Sampad Kumar Kar -- BMC201944}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{flushleft}
+
+$\Q \subset E$ is an algebraic extension of fields.
+
+We will show that any ring homomorphism from $E$ to itself must be an isomorphism.
+
+\medskip
+
+Consider a ring homomorphism $\psi:E\to E$.
+
+\begin{claim}
+	$\psi|_{\Q} = id$
+\end{claim}
+
+\begin{proof}
+	Clearly, $\psi|_{\Z} = id$.
+
+	Now, for any $\frac{p}{q} \in \Q$, where $p,q \in \Z$ $\psi(p) = \psi(\frac{p}{q}.q) = \psi(\frac{p}{q}).\psi(q) \implies \psi(\frac{p}{q}) = \frac{p}{q}$.
+\end{proof}
+
+This map is obviously injective as any ring homomorphism from a field is always injective (because mapping a nonzero element to $0$, maps $1$ to $0$, which means kernel is always $0$).
+
+\medskip
+
+Now, we show surjectivity of this map using the hint. Consider any $\alpha \in E$. Since $E$ is algebraic extension of $\Q$, $\exists$ $min_{\Q} \alpha = f(x) \in \Q[x]$. Now, consider the set $\Gamma =$ roots of $f(x)$ in $E$. 
+
+\medskip
+
+Now, I will show that $\psi|_{\Gamma} : \Gamma \to \Gamma$ is a bijection.
+
+\medskip
+
+This is injective because $\psi$ is injective and for any $\beta \in \Gamma$, $\psi(f(\beta)) = \psi(0) = 0 = f(\psi(\beta))$, because $\psi|_{\Q} = id$ and $f(x) \in \Q[x]$.
+
+This means $\psi(\beta) \in \Gamma$, meaning the map is well defined.
+
+Since, $\Gamma$ is a finite set, $\psi|_{\Gamma}$ is a bijection.
+
+This means $\exists \beta \in \Gamma \subset E$ such that $\psi(\beta) = \alpha \in \Gamma \subset E$, proving the surjectivity of $\psi$.
+
+\medskip
+
+So, $\psi$ is an isomorphism.
+
+\end{flushleft}
+\end{document}

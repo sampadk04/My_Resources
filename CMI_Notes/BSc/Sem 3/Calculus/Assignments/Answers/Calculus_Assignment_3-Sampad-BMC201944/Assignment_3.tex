@@ -1,0 +1,586 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{graphics}
+\graphicspath{./images/}
+\usepackage{url}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,color,amsbsy}
+\usepackage[pagebackref=true,colorlinks]{hyperref}
+\usepackage{tikz,pgf}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+\usepackage{xlop}
+\usepackage{soul}
+\usepackage{xcolor}
+\graphicspath{ {./Images/} }
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+
+\addtolength{\oddsidemargin}{-.75in}
+\addtolength{\evensidemargin}{-.75in}
+\addtolength{\textwidth}{1.75in}
+
+\addtolength{\topmargin}{-.875in}
+\addtolength{\textheight}{1.75in}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	citecolor=magenta
+}
+
+
+\definecolor{xdxdff}{rgb}{0.49019607843137253,0.49019607843137253,1.}
+\definecolor{zzttqq}{rgb}{0.6,0.2,0.}
+\definecolor{qqqqff}{rgb}{0.,0.,1.}
+
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{warning}[theorem]{Warning}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{recall}[theorem]{Recall}
+\newtheorem{observation}[theorem]{Observation}
+
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\p}{\mathbb{P}}
+\newcommand{\e}{\epsilon}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\V}{\mathbf{v}}
+\newcommand{\X}{\mathcal{X}}
+\newcommand{\n}{\mathcal{N}}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\adj}{adj}
+\DeclareMathOperator{\real}{Re}
+\DeclareMathOperator{\imag}{Im}
+\newcommand{\bigO}{\mathcal{O}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\bs}{\boldsymbol}
+\newcommand{\cl}{\overline}
+\newcommand{\inr}[1]{\left\langle #1 \right\rangle}
+\newcommand{\nrm}[1]{\left\| #1 \right\|}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\set}[1]{\left{ #1 \right}}
+\newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+
+\title{Calculus Assignment 3}
+\author{Sampad Kumar Kar -- BMC201944}
+\date{\today}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{flushleft}
+
+{\bf  Problem 1}
+
+(Problem 3-23 of Spivak.) Let $A,B$ be rectangles and $C \subset R \equiv A \times B$ a set of content zero. For $x \in A$, set $B_x \subset B$ be defined by $\{y \in B|(x,y) \in C\}$. Let $A' \subset A$ be the set
+\[
+\{x \in A|\textup{$B_x$ is NOT of content zero.}\}
+\]
+Show that $A'$ is a set of measure zero.
+
+\bigskip
+
+{\bf Solution 1}
+
+\medskip
+
+Firstly, we know that $C$ has content zero.
+
+\begin{claim}
+	If $C$ has content zero, then $\overline{C}$ also has content zero.
+\end{claim}
+
+\begin{proof}
+	For any $\epsilon > 0$, $\exists R_1, R_2, \dots R_k$ of closed rectangles such that $C \subseteq \cup_{i = 1}^{k} R_i $ and $\sum_{i = 1}^{k} area(R_i) < \epsilon $.
+
+	Now, let $x$ be a limit point of $C$. Then $x$ is also a limit point of $\cup_{i = 1}^{k} R_i$, which is closed, meaning $x \in \cup_{i = 1}^{k} R_i$ which implies $\overline{C} \subseteq \cup_{i = 1}^{k} R_i $, which means $\overline{C} $ also has content zero.
+\end{proof}
+
+\begin{claim}
+	If the statement of the problem holds for $C$, then it also holds for $\overline{C}$.
+\end{claim}
+
+\begin{proof}
+	Now, $C \subseteq \overline{C}$, which means for any $x \in A$, $B_{x,C} \subseteq B_{x,\overline{C}} $, which means $B_{x,C} $ is NOT of content zero if $B_{x,\overline{C}} $ is NOT of content zero, which implies $A_C' \subseteq A_{\overline{C}}'$, which again means $A_C'$ has measure zero if $A_{\overline{C}}'$ has measure zero.
+\end{proof}
+
+So, we just replace $C$ with $\overline{C}$ and continue with the proof.
+\medskip
+
+Now, $C$ is closed and bounded (hence compact) and has measure zero. This means $\partial C$ also has measure zero and content zero, meaning $C$ is acceptable and it characteristic function $\chi$ w.r.t. $R$ is Riemman Integrable and $\int_{R} \chi(\vec{t}).d\vec{t} = 0$.
+\medskip
+
+Now, for any $x \in A$, $\chi_x (y) = \chi (x,y)$. Clearly $\chi_x$ is a characteristic function of $B_x$ w.r.t. $B$. Let $U(x)= \overline{\int_{B}} \chi_x (y).dy $ and $L(x)= \underline{\int_{B}} \chi_x (y).dy $.
+
+\begin{claim}
+	$\int_{R} \chi(\vec{t}).d\vec{t} = 0 = \int_{A} U(x).dx = \int_{A} L(x).dx$.
+\end{claim}
+
+\begin{proof}
+	This follows directly from {\bf Fubini's Theorem}.
+\end{proof}
+
+\begin{claim}
+	$U(x) \ne 0 \iff x \in A'$.
+\end{claim}
+
+\begin{proof}
+	($\rightarrow$) We prove the contrapositive. If $x \notin A'$, then $B_x$ has content zero. Then $\chi_x$ is Riemman Integrable as both the upper Riemman sum $U(x)$ and the lower Riemman sum $(L(x)$ of $\int_{B} \chi_x (y).dy$ can be arbitrarily small as $B_x$ has content zero, implying both of them are zero.
+	
+	\medskip
+	
+	($\leftarrow$) We prove the contrapositive. If $U(x) = 0$, that means $L(x) = 0$ as $0 \le L(x) \le U(x)$ (as characteristic functions are always positive). This means $\chi_x$ is Riemman Integrable and $\int_{B} \chi_x (y).dy = 0$, which means $area (B_x) = 0$, implying $B_x$ can be covered by arbitrarily small rectangles, with arbitrarily small area, meaning $B_x$ has content zero and $x \notin A'$.
+\end{proof}
+
+Now, $U:A\to \mathbb{R}$. From {\bf Claim 0.4}, $A' = U^{-1}(0,\infty)$. Consider the collection of sets $\{A_n = U^{-1} [\frac{1}{n},\infty) | n \in \mathbb{N}\}$.
+
+\begin{claim}
+	$A' = \cup_{i=1}^{\infty} A_i$
+\end{claim}
+
+\begin{proof}
+	Clearly for every $i \in \mathbb{N}$, $A_i \subseteq A'$. So, $\cup_{i=1}^{\infty} A_i \subseteq A'$.
+
+	\medskip
+
+	By {\bf Claim 0.4} for any $x \in A'$, $B_x$ does not have content zero, which means $U(x) = \epsilon$ for some $\epsilon > 0$. This means for some $m > \epsilon$, $x \in A_m \implies x \in \cup_{i=1}^{\infty} A_i$, which means $A' \subseteq \cup_{i=1}^{\infty} A_i$.
+
+	\medskip
+
+	Hence, $A' = \cup_{i=1}^{\infty} A_i$.
+\end{proof}
+
+\begin{claim}
+	$U \ge \frac{1}{i} \chi_{A_i}$ for any $i \in \mathbb{N}$, where $\chi_{A_i}$ is the characteristic function of $A_i$ w.r.t. $A$.
+\end{claim}
+
+\begin{proof}
+	For any $i \in \mathbb{N}$, if $x \in A_i$ then $X_{A_i}(x) = 1$ and $U(x) \ge \frac{1}{n}$ else $X_{A_i}(x) = 0$ and $U(x) \ge \frac{1}{n}.0 = 0$. Thus, $U \ge \frac{1}{i} \chi_{A_i}$.
+\end{proof}
+
+\begin{claim}
+	A set $S \in \mathbb{R}^n$ has content zero iff $\int_{R} \chi_{S} (\vec{x}).d\vec{x} = 0$, where $\chi_{S}$ is the characteristic function of $S$ w.r.t. a closed rectangle $R$ containing $S$. 
+\end{claim}
+
+\begin{proof}
+	$(\rightarrow)$ Suppose $S$ has content zero. Consider $\epsilon > 0$. $\exists R_1,R_2,\dots,R_k$ such that $S \subset \cup_{i = 1}^{k} R_i$ and $\sum_{i = 1}^{k} vol(R_i) < \epsilon$. Then $\overline{\int_{R}} \chi_S (\vec{x}).d\vec{x} \le \sum_{i = 1}^{k} vol(R_i) < \epsilon$ (this is because the same inequality is valid for the sum of characteristic functions of each $R_i$ in the r.h.s.), as we showed in previous assignment. This means we can make the upper Riemman sum arbotrarly small, meaning $\overline{\int_{R}} \chi_S (\vec{x}).d\vec{x} = 0$, and since $\chi_{S}$ is a positive function, this implies $\int_{R} \chi_{S} (\vec{x}).d\vec{x} = 0$.
+
+	\medskip
+
+	$(\leftarrow)$ Suppose $\int_{R} \chi_{S} (\vec{x}).d\vec{x} = 0$. This means- $$\inf_{P} \{\sum_{R_i \in P} (\sup_{\vec{x} \in R_i} \chi_{S} (x) ).vol(R_i)\} = \overline{\int_{R}} \chi_S (\vec{x}).d\vec{x} = 0$$
+	Consider any $\epsilon > 0$. $\exists$ a partition $P$ of $R$ such that $\sum_{R_i \in P} (\sup_{\vec{x} \in R_i} \chi_{S} (x)).vol(R_i) < \epsilon$.
+
+	\medskip
+
+	Now, notice that $(\sup_{\vec{x} \in R_i} \chi_{S} (x))$ is non-zero iff $R_i \cap S \ne \phi$. Collect all such rectangles. Clearly their union contains $S$ and the sum of their volumes is nothing but $\sum_{R_i \in P} (\sup_{\vec{x} \in R_i} \chi_{S} (x)).vol(R_i)$ (as $(\sup_{\vec{x} \in R_i} \chi_{S} (x)) = 1$ for such $R_i$'s, so its just the sum of their volumes) which is less that $\epsilon$. Since, these are a finite collection of rectangles, $S$ has content zero.
+\end{proof}
+
+\begin{claim}
+	$A_n$ has content zero for all $n \in \mathbb{N}$.
+\end{claim}
+
+\begin{proof}
+	From {\bf Claim 0.6}, for any $n \in \mathbb{N}$, $U \ge \frac{1}{n} \chi_{A_n}$. 
+	Taking upper Riemman sum over B on both sides gives us $\overline{\int_{A}} U(x).dx \ge \overline{\int_{A}} \frac{1}{n} \chi_{A_n}.dx$. From {\bf Claim 0.3} we get $0 \ge \frac{1}{n} \overline{\int_{A}} \chi_{A_n}.dx \implies \overline{\int_{A}} \chi_{A_n}.dx = 0 = \underline{\int_{A}} \chi_{A_n}.dx$, which means $\chi_{A_n}$ is Riemman Integrable and $\int_{A} \chi_{A_n} = 0 = area(A_n)$, which means from {\bf Claim 0.7}, $A_n$ has content zero.
+\end{proof}
+
+Now, from {\bf Theorem 3-4} in {\it Spivak}, we know that countable union of {\it measure zero} sets also have {\it measure zero}. So, from {\bf Claim 0.5} and {\bf Claim 0.7}, we are done.
+
+\newpage
+
+{\bf  Problem 2}
+
+Let $I_i \subset \mathbb{R},i=1,\dots,n$ be closed bounded intervals of nonzero length. Prove that $I_i$ is NOT of content zero, and an induction to show that $I_1 \times I_2 \times \dots \times I_n$ is not of measure zero.
+
+\bigskip
+
+{\bf Solution 2}
+
+\medskip
+
+\begin{claim}
+	$I = [a,b] \subset \mathbb{R}$, $a<b$ is not of content zero.
+\end{claim}
+
+{\it The idea of this proof is taken from {\bf Theorem 3-5} of {\it Spivak}}.
+
+\begin{proof}
+	I will show that $\exists \epsilon > 0$ such that for any finite covering of closed intervals for $I$, the sum of their lengths (volume) is always greater than $\epsilon$.
+
+	\medskip
+
+	Consider $\epsilon = \frac{b-a}{2}$. Let $\{J_i = [a_i,b_i]|i = 1,2, \dots n\}$ be a finite covering of closed intervals for $I$, i.e $I \subseteq \cup_{i=1}^{n} J_i$.
+
+	\medskip
+
+	We can assume that each $J_i \subseteq I$, else we can just replace $J_i$ with $J_i \cap I$, as this replacement won't affect the cover and it will still be a closed interval. Let $a = p_0 < p_1 < \dots <t_k = b$, be all the distinct end-points of the $J_i$'s together. Then for each $i$, $l(J_i)$ is the sum of certain number of $(p_j - p_{j-1})$'s i.e., $l(J_i) = \sum_{j = m}^{n} (p_j - p_{j-1})$, where $1 \le m,n \le k$. Also, each $(p_j - p_{j-1})$ lies in atleast one of $J_i$ (namely one that contains any interior point of $(p_j - p_{j-1})$).
+
+	\medskip
+
+	This means $\sum_{i= 1}^{n} l(J_i) \ge \sum_{j = 1}^{k} (p_j - p_{j-1}) = b-a > \frac{b-a}{2} = \epsilon$. Hence, $I$ is not of content zero.
+
+\end{proof}
+
+We, proved in class that if $A$ is compact and has measure zero, then $A$ has content zero.
+
+Now, $I$ is compact as it is closed and bounded. So, if $I$ had measure zero, that would also imply that $I$ has content zero, which by {\bf Claim 0.8} is false. So, $I$ is not of measure zero as well.
+
+\begin{claim}
+	Let $I_i \subset \mathbb{R},i=1,\dots,n$ be closed bounded intervals of nonzero length. Then $I_1 \times I_2 \times \dots \times I_n$ is not of content zero.
+\end{claim}
+
+\begin{proof}
+	The idea of the proof is similar to that of {\bf Claim 0.8}. We prove this by induction on $n$. The base case for $n=1$, is $\bf Claim 0.8$ itself. Now, let this be true for all $n \le m$. Now, consider $n = m+1$.
+
+	\medskip
+
+	Let $R = I_1 \times I_2 \times \dots \times I_m \times I_{m+1} = I \times J$, where $I = I_1$ and $J = I_2 \times \dots \times I_{m+1}$.
+
+	\medskip
+
+	By induction hypothesis, $J = I_2 \times \dots \times I_{m+1}$ and $I = I_1$ are not of content zero. Lets assume on the contrary that $R = I \times J$ has content zero. So, by {\bf Claim 0.7} $\int_{R} \chi (\vec{x}).d\vec{x} = 0$, where $\chi$ is the characteristic function of $R$ w.r.t. $R$.
+
+	\medskip
+
+	Now, applying {\it Fubini} and using {\bf P1}, we can write $\int_{R} \chi (\vec{x}).d\vec{x} = 0 =\int_{I} U(x).dx$, where $U(x) = \overline{\int_{J}} \chi_{x} (\vec{y}).d\vec{y}$, where $\chi_{x} (\vec{y}) = \chi (x,\vec{y})$. Clearly $\chi_{x} (\vec{y})$ is just the characteristic function of $J$ in $J$, which means this just evaluates to $vol(J)$. And from induction hypothesis $vol(J) \ne 0$, as $J$ is not of content zero, which means $B_x$ as defined in {\bf P1} is not of content zero, meaning $x \in A'$ for any $x \in I \implies A' = I$. But as $\int_{R} \chi (\vec{x}).d\vec{x} = 0$, by {\bf P1}, this means $A' = I$ has measure zero, which is a contradiction.
+
+	\medskip 
+
+	Hence, $R$ is of not of content zero.
+\end{proof}
+
+Now, as we proved in class, if $R$ is compact and has measure zero, means it also has content zero. Hence, by {\bf Claim 0.10}, $R$ is not of measure zero.
+
+\newpage
+
+{\bf  Problem 3}
+
+Let $I=[a,b]$ and $f$ a continuous real-valued function on the square $I \times I$. Prove that
+\[
+\int_a^b(\int_a^y f(x,y)dx)dy=\int_a^b(\int_x^b f(x,y)dy)dx
+\]
+
+\bigskip
+
+{\bf Solution 3}
+
+\medskip
+
+Let $R = I \times I$, where $I = [a,b]$. Clearly, $R$ forms a square of side length $(b-a)$. Let $C \subset R$, be the upper left apexed triangle (formed by diving the square $R$ into $2$ halves along the diagonal). So, $C$ is the closed triangle having vertices $(a, a), (a, b)$ and $(b, b)$. So, $C =  \{(x, y) \in R | a \le x \le y , a \le y \le b\} = \{(x, y) \in R | a \le x \le b , x \le y \le b)\}$.
+
+We showed in previous assignment that triangles are 'acceptable' sets, meaning $C$ is acceptable, meaning the characteristic fucntion $\chi_C$ w.r.t. $R$ is Riemman Integrable.
+Also, $f$ is a continuous function on $R$, hence its also Riemman integrable on $R$.
+Define a function $g(x,y):=f(x,y).\chi_C (x,y)$. Clearly $g$ is also Riemman Integrable over $R$.
+
+\medskip
+
+Firstly, consider the function $g_x (y) := g(x,y)$ and $f_x (y) = f(x,y)$. Now, $g_x$ is Riemman intergrable on $I$ because $g_x (y) = g(x,y) = f(x,y).\chi_{C} (x,y) = f_x (y).\chi_{[x,b]}$ (as $C = \{(x, y) \in R | a \le x \le b , x \le y \le b)\}$) and $f_x$ is continuous on $I$ and the interval $[x,b]$ is acceptable as well.
+
+Similarly we can argue that the function $g_y (x) := g(x,y)$ is also Riemman Integrable on I.
+
+\medskip
+
+Now, it actually makes sense to apply {\it Fubini}, w.r.t. both the coordinates first to get iterated integrals (because both the freeze functions as shown above are Riemman Integrable) i.e., $$\int_{I} g(\vec{t}).d\vec{t} = \int_{a}^{b} (\int_{a}^{b} g_y (x).dx).dy = \int_{a}^{b} (\int_{a}^{b} g_x (y).dy).dx $$ 
+\begin{equation}
+	\implies \int_{a}^{b} (\int_{a}^{b} g(x,y).dx).dy = \int_{a}^{b} (\int_{a}^{b} g(x,y).dy).dx
+\end{equation}
+
+\begin{claim}
+	(i) $\int_{a}^{b} g(x,y).dx = \int_{a}^{y} f(x,y).dx$.
+	\smallskip
+	(ii) $\int_{a}^{b} g(x,y).dy = \int_{x}^{b} f(x,y).dx$.
+\end{claim}
+
+\begin{proof}
+	(i) For any $y \in (a,b)$, we can write $\int_{a}^{b} g(x,y).dx = \int_{a}^{y} g(x,y).dx + \int_{y}^{b} g(x,y).dx = \int_{a}^{y} f(x,y).\chi_{C} (x,y).dx + \int_{y}^{b} f(x,y).\chi_{C} (x,y).dx$.
+
+	\medskip
+
+	Now, $C =  \{(x, y) \in R | a \le x \le y , a \le y \le b\}$, which means $\chi_{C} (x,y) = 1$ if $a \le x \le y$ and $0$, otherwise, meaning the second term in the integral vanishes and we get the only remaining first term i.e., $\int_{a}^{b} g(x,y).dx = \int_{a}^{y} f(x,y).dx$.
+
+	\bigskip
+
+	(ii) For any $x \in (a,b)$, we can write $\int_{a}^{b} g(x,y).dy = \int_{a}^{x} g(x,y).dy + \int_{x}^{b} g(x,y).dy = \int_{a}^{x} f(x,y).\chi_{C} (x,y).dy + \int_{x}^{b} f(x,y).\chi_{C} (x,y).dy$.
+
+	\medskip
+
+	Now, $C =  \{(x, y) \in R | a \le x \le b , x \le y \le b)\}$, which means $\chi_{C} (x,y) = 1$ if $x \le y \le b$ and $0$, otherwise, meaning the first term in the integral vanishes and we get the only remaining second term i.e., $\int_{a}^{b} g(x,y).dy = \int_{x}^{b} f(x,y).dy$.
+\end{proof}
+
+Now, just by replacing the results obtained in {\bf Claim 0.11} in Equation (1), we obtain our required result.
+\newpage
+
+{\bf  Problem 4}
+
+(Equality of mixed partial derivatives using Fubini!) Let $f$ be a $C^2$ function on an open rectangle in $\mathbb{R}^2$, with $x,y$ being the coordinates. This means that the partial derivatives up to order two exist  and are continuous. Use Fubini to prove that the mixed partial derivatives are equal:
+$$
+\frac{\partial }{ \partial x} (\frac{\partial f}{ \partial y})= \frac{\partial }{ \partial y} (\frac{\partial f}{ \partial x})
+$$
+(You should know a proof using the mean-value theorem.)
+
+\bigskip
+
+{\bf Solution 4}
+
+Given $f$ is a $C^2$ function defined on an open rectangle, say $U \subset \mathbb{R}^2$. Consider a closed rectangle $R = [a,b] \times [c,d] \in U$.
+
+\medskip
+
+{\bf Notations:} $f_1 = \frac{\partial f}{\partial x}$, $f_2 = \frac{\partial f}{\partial y}$, $f_{12} = \frac{\partial}{\partial x}(\frac{\partial f}{\partial y})$, and $f_{21} = \frac{\partial}{\partial y}(\frac{\partial f}{\partial x})$.
+
+\medskip
+
+Now, consider $\gamma = (f(b,d) - f(b,c)) - (f(a,d) - f(a,c))$.
+
+By {\it Fundamental Theorem of Calculus} -
+$$f(b,d) - f(b,c) = \int_{c}^{d} f_2(b,y).dy $$
+and
+$$f(a,d) - f(a,c) = \int_{c}^{d} f_2(a,y).dy$$
+which means
+\begin{equation}
+	\gamma = \int_{c}^{d} (f_2(b,y)-f_2(a,y)).dy
+\end{equation}
+Also, again by {\it Fundamental Theorem of Calculus} -
+$$f_2(b,y)-f_2(a,y) = \int_{a}^{b} f_{12} (x,y).dx$$
+Substituting this in Equation (2), we get-
+\begin{equation}
+	\gamma = \int_{c}^{d}(\int_{a}^{b} f_{12} (x,y).dx).dy
+\end{equation}
+Now, if we just rearrange and write $\gamma = (f(b,d) - f(a,d)) - (f(b,c) - f(a,c))$, and repeating the above steps we will get the following -
+\begin{equation}
+	\gamma = \int_{a}^{b}(\int_{c}^{d} f_{21} (x,y).dy).dx
+\end{equation}
+
+Now, as given in the problem, $f$ is $C^2$, meaning $f_{12}$ is continuous on $R$. This means we can switch the iterated integrals using {\it Fubini}, i.e.
+\begin{equation}
+	\gamma = \int_{c}^{d}(\int_{a}^{b} f_{12} (x,y).dx).dy = \int_{a}^{b}(\int_{c}^{d} f_{12} (x,y).dy).dx = \int_{a}^{b}(\int_{c}^{d} f_{21} (x,y).dy).dx
+\end{equation}
+
+\medskip
+
+Now, define $g(x,y):= f_{12} (x,y) = f_{21} (x,y)$. As $f_{12}$ and $f_{21}$ are continuous, $g$ is also Riemman Integrable and by Equation (5), $\int_{a}^{b}(\int_{c}^{d} g (x,y).dy).dx = 0$. This is true for any $R = [a,b] \times [c,d] \subset U$.
+
+\newpage
+
+\begin{claim}
+	$g(x,y) = 0$ $\forall (x,y) \in U$.
+\end{claim}
+
+\begin{proof}
+	Let us assume of the contrary that $g(p,q) > 0$ for some $(p,q) \in U$.
+
+	Take the rectangle $R$ such that $a = p$ and $c = q$ and $b,d$ such that $R = [a,b] \times [c,d] \in U$. 
+
+	Now, as $g$ is continuous, we can find $b,d$ close enough to $c,d$ such that for any $(x,y) \in R$, $g(x,y) \ge \frac{g(p,q)}{2} > 0$.
+
+	So, now from previous result we have that, $\int_{R} g(\vec{t}).d\vec{t} = 0 = \int_{a}^{b}(\int_{c}^{d} g (x,y).dy).dx \ge \int_{a}^{b}(\int_{c}^{d} \frac{g(p,q)}{2}.dy).dx = \frac{g(p,q).(d-c).(b-a)}{2} > 0$, which is a contradiction
+
+	\medskip
+
+	Thus, $g(x,y) = 0$ $\forall (x,y) \in U$, which means $f_{12} = f_{21}$, which what we had to prove.
+\end{proof}
+
+\newpage
+
+{\bf  Problem 5}
+
+Let $R=[a_1,b_1] \times [a_2,b_2] \subset \mathbb{R}^2$ and $f$ a continuous real-valued function defined on $R$. Define the function $F$ on $R$ by
+\[
+F(x,y)=\int_{R_{(x,y)}} f
+\]
+where $R_{(x,y)} \subset R$ is the rectangle $[a_1,x] \times [a_2,y]$. Is $F$ continuous, is it $C^1$? 
+\[
+\textup{What are the partial derivatives $\frac{\partial F}{ \partial x}$ and $\frac{\partial F}{ \partial y}$?}
+\]
+
+\bigskip
+
+{\bf Solution 5}
+
+\medskip
+
+Now, as $f$ is continuous, using {\it Fubini}, we know that $F(x,y) = \int_{a_2}^{y} (\int_{a_1}^{x} f(s,t).ds).dt = \int_{a_1}^{x} (\int_{a_2}^{y} f(s,t).dt).ds$.
+
+\begin{claim}
+	For a fixed $y \in [a_2,b_2]$, define $g_y (s) := \int_{a_2}^{y} f(s,t).dt$. Then $g_y$ is continuous in $s$.
+\end{claim}
+
+\begin{proof}
+	Consider $\epsilon > 0$. Now by continuity of $f$, $\exists \delta > 0$, such that for all $s'$ such that $|s-s'| < \delta$, we have $|f(s,t) - f(s',t)| < \epsilon$, which means -
+	$$|g_y (s) - g_y (s')| = |\int_{a_2}^{y} (f(s,t) - f(s',t)).dt| < \int_{a_2}^{y} |f(s,t) - f(s',t)|.dt < \epsilon \int_{a_2}^{y} dt = \epsilon (y - a_2)$$
+	implying $g_y$ is continuous in $s$.
+\end{proof}
+
+\medskip
+
+Now, $F(x,y) = \int_{a_1}^{x} g_y(s).ds$. By {\bf Claim 0.13}, $g_y$ is continuous, hence we can use the {\it Second Fundamental Theorem of Calculus} in one variable, and conclude the following -
+
+$\frac{\partial}{\partial x} F(x,y)$ exists and $\frac{\partial}{\partial x} F(x,y) = g_y(x).\frac{d}{dx} (x) - g_y(a_1).\frac{d}{dx} (a_1) = g_y(x)$.
+
+\medskip
+
+Now, define $h(x,y) := g_y (x) = \int_{a_2}^{y} f(x,t).dt$. Again by the {\it Second Fundamental Theorem of Calculus}, differentiating this w.r.t. $y$, we get $\frac{\partial}{\partial y} h(x,y) = f(x,y)$.
+
+\begin{claim}
+	$h$ is continuous on two variables.
+\end{claim}
+
+\begin{proof}
+	Consider $\epsilon > 0$.
+
+	From {\bf Claim 0.13}, we know that $h$ is continuous in $x$. So, $\exists \delta_1 > 0$, such that if $|x - x'| < \delta_1$, then $|h(x,y)-h(x',y)| < \frac{\epsilon}{2}$.
+
+	\medskip
+
+	From {\it Mean Value Theorem}, $|h(x,y)-h(x',y')| = |y-y'|.|f(x',y'')|$ for some $y''$ within $y$ and $y'$. Let $x' \in [x-\delta_1,x+\delta_1]$ and $y' \in [y-\delta_2,y+\delta_2]$ for some small enough $\delta_2 > 0$, such that $(x',y'') \in [x-\delta_1,x+\delta_1] \times [y-\delta_2,y+\delta_2]$. Now, since this is a compact set and $f$ is continuous, $f$ is bounded on this set and $|f(x',y'')| < M$ for some $M > 0$. Now, by continuity of $f$, pick a $0 < \delta_3 < \delta_2$, such that $|h(x',y) - h(x',y')| < \frac{\epsilon}{2}$ for $|y-y'| < \delta_3$.
+
+	\medskip
+
+	Now, combining results from the previous two paragraphs we get using {\it Triangle Inequality} that $|h(x,y) - h(x',y')| < frac{\epsilon}{2} + frac{\epsilon}{2} = \epsilon$ for $(x',y') \in [x-\delta_1,x+\delta_1] \times [y-\delta_3,y+\delta_3]$, which means $h$ is continuous in two variables.
+\end{proof}
+
+Now, $F(x,y) = \int_{a_1}^{x} g_y (s).ds = \int_{a_1}^{x} h(s,y).ds$ and as by {\bf Claim 0.14}, $h$ is continuous. So, again by applying the {\it Second Fundamental Theorem of Calculus} and differentiating w.r.t. $x$, we get that $\frac{\partial}{\partial x} F(x,y) = h(x,y)$, $\frac{\partial F}{\partial x}$ exists and is continuous as well in $R_{(x,y)}$.
+
+\medskip
+
+Also, with an analogous argument for $g_x (t) := \int_{a_1}^{x} f(s,t).ds$, we can show that $\frac{\partial F}{\partial y}$ exists and is continuous as well in $R_{(x,y)}$.
+
+\medskip
+
+Since, both $\frac{\partial F}{\partial x}$ and $\frac{\partial F}{\partial y}$ exist and are continuous, $F$ is differentiable with a continuous derivative and hence $F$ is $C^1$ as well. Thus, we are done.
+
+\newpage
+
+{\bf  Problem 6}
+
+(``Differentiation under the integral sign''; holds under weaker hypotheses.) Let $R=[a_1,b_1] \times [a_2,b_2] \subset \mathbb{R}^2$ and $f$ a $C^1$ real-valued function defined on an open set $U$ containing $R$. Let $G$ be defined on $[a_2,b_2]$ by
+\[
+G(y)=\int_{a_1}^{b_1} f(x,y)dx 
+\]
+Prove that
+\[
+G'(y)=\int_{a_1}^{b_1} \frac{\partial f}{\partial y} (x,y)dx 
+\]
+
+\bigskip
+
+{\bf Solution 6}
+
+Since, $f$ is $C^1$, define $h(x,y) := \frac{\partial}{\partial y} f(x,y)$ and $h$ is continuous as well.
+
+Using {\it Fundamental Theorem of Calculus}, we get-
+$$f(x,y) - f(x,a_2) = \int_{a_2}^{y} h(x,t).dt$$
+Now, integrating both sides w.r.t. $x$ from limit $a_1$ to $b_1$, we get-
+$$\int_{a_1}^{b_1} (f(x,y) - f(x,a_2)).dx = \int_{a_1}^{b_1} (\int_{a_2}^{y} h(x,t).dt).dx$$
+$$\implies G(y) - G(a_2) = \int_{a_1}^{b_1} (\int_{a_2}^{y} h(x,t).dt).dx$$
+
+Now, as $h$ is continuous, by {\it Fubini} we can switch the iterated integrals to obtain-
+$$G(y) - G(a_2) = \int_{a_2}^{y} (\int_{a_1}^{b_1} h(x,t).dx).dt$$
+
+\medskip
+
+Now, define $g(t) := \int_{a_1}^{b_1} h(x,t).dx$.
+
+\begin{claim}
+	$g$ is continuous on $t$.
+\end{claim}
+
+\begin{proof}
+	Proof exactly same as {\bf Claim 0.13}.
+\end{proof}
+
+So, now we have $G(y) - G(a_2) = \int_{a_2}^{y} g(t).dt$, where $g$ is continuous. Now by applying the {\it Second Funcdamental Theorem of Calculus} and differentiating both sides w.r.t. $y$ we get-
+$$G'(y) = g(y) = \int_{a_1}^{b_1} h(x,y).dx = \int_{a_1}^{b_1} \frac{\partial}{\partial y} f(x,y) .dx$$
+Hence, we are done.
+
+\newpage
+
+{\bf  Problem 7}
+
+If $f:[a,b] \times [c,d] \to \mathbb{R}$ is continuous and $D_2 f$ is continuous, define $F(x,y) := \int_{a}^{x} f(t,y).dt$.
+
+(a) Find $D_1 f$ and $D_2 f$.
+
+(b) If $G(x) = \int_{a}^{g(x)} f(t,x).dt$, find $G'(x)$.
+
+\bigskip
+
+{\bf Solution 7}
+
+\medskip
+
+$F(x,y) := \int_{a}^{x} f(t,y).dt $. Now, $f$ is continuous, so by the {\it Second Funcdamental Theorem of Calculus} and differentiating both sides w.r.t. $x$ we get-
+$$D_1 F(x,y) = f(x,y)$$
+
+Now, by fixing $x$ and derivating w.r.t. $y$, using {\bf P6}, we get-
+$$D_2 F(x,y) = \int_{a}^{x} D_2 f(t,y).dt$$
+
+Now, $G(x) = \int_{a}^{g(x)} f(t,x).dt = F(g(x),x)$. Consider a function $h(x) = (g(x),x)$.
+
+So, $G(x) = F(h(x))$. Using chain rule of differentiation, we get that-
+$$G'(x) = F'(h(x))h'(x) = 
+\begin{bmatrix}
+	D_1 F(h(x)) & D_2 F(h(x))
+\end{bmatrix}
+\begin{bmatrix}
+	g'(x) \\
+	1
+\end{bmatrix}
+= f(g(x),x).g'(x) + \int_{a}^{g'(x)} D_2 f(t,x).dt
+$$
+
+Hence, we are done.
+
+\newpage
+
+{\bf  Problem 8}
+
+{\it (Cavalieri's principle).} Let $A$ and $B$ be Jordan-measurable subsets of $\mathbb{R}^3$. Let $A_c = \{(x,y) | (x,y,c) \in A\}$ and $B_c = \{(x,y) | (x,y,c) \in B\}$. Suppose each $A_c$ and $B_c$ are Jordan-measurable and have the same area. Show that $A$ and $B$ have the same volume.
+
+\bigskip
+
+{\bf Solution 8}
+
+\medskip
+
+Let $A$ and $B$ be contained in a closed cuboid, say $R \times I$, where $R$ is a closed rectangle in $\mathbb{R}^2$ and $I$ a closed interval in $\mathbb{R}$. 
+
+Since, our notion of Jordan-measurability and acceptibility of a subset are the same, $A$ and $B$ being Jordan-measurable are also acceptable.
+
+\medskip
+
+Now, since $A$ is acceptable, its characteristic function $\chi_A$ is Riemman Integrable on $R \times I$ and $vol(A) = \int_{R \times I} \chi_A$.
+
+Now, we freeze the $z$ coordinate in $\chi_A (x,y,z)$ and define $\chi_{A_z} (x,y) := \chi_A (x,y,z)$. Since, we are given that $A_z$ is acceptable (Jordan-measurable), $\chi_{A_z}$ being the characteristic function of $A_z$ is also Riemman Integrable.
+
+Using {\it Fubini}, we have an iterated integral-
+$$vol(A) = \int_{R \times I} \chi_A = \int_{I} (\int_{R} \chi_{A_z})$$
+$$\implies vol(A) = \int_{I} area(A_z)$$
+
+Following the exact same steps for $B_z$, we can conclude that-
+$$vol(B) = \int_{I} area(B_z)$$
+
+But now, we are given that $area(A_z)= area(B_z) \implies vol(A) = vol(B)$. Hence, we are done.
+
+\end{flushleft}
+\end{document}

@@ -1,0 +1,303 @@
+ \documentclass[11pt]{amsart}
+
+
+\usepackage[all]{xy}
+\usepackage{graphics}
+\usepackage{enumitem}
+\usepackage{epsfig}
+\usepackage{amsmath}
+\usepackage{amscd}
+\usepackage{tikz-cd}
+\usepackage{verbatim}
+\usepackage{pdfpages}
+%\usepackage{showkeys}
+\usepackage{amsfonts,latexsym,amssymb}
+\usepackage{parskip}
+\usepackage{MnSymbol}
+\usepackage{hyperref}
+
+\usepackage{mdwlist}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\cA}{{\mathcal{A}}}   \newcommand{\cB}{{\mathcal{B}}}
+\newcommand{\cC}{{\mathcal{C}}}   \newcommand{\cD}{{\mathcal{D}}}
+\newcommand{\cE}{{\mathcal{E}}}   \newcommand{\cF}{{\mathcal{F}}}
+\newcommand{\cG}{{\mathcal{G}}}   \newcommand{\cH}{{\mathcal{H}}}
+\newcommand{\cI}{{\mathcal{I}}}   \newcommand{\cJ}{{\mathcal{J}}}
+\newcommand{\cK}{{\mathcal{K}}}   \newcommand{\cL}{{\mathcal{L}}}
+\newcommand{\cM}{{\mathcal{M}}}   \newcommand{\cN}{{\mathcal{N}}}
+\newcommand{\cO}{{\mathcal{O}}}   \newcommand{\cP}{{\mathcal{P}}}
+\newcommand{\cQ}{{\mathcal{Q}}}   \newcommand{\cR}{{\mathcal{R}}}
+\newcommand{\cS}{{\mathcal{S}}}   \newcommand{\cT}{{\mathcal{T}}}
+\newcommand{\cU}{{\mathcal{U}}}   \newcommand{\cV}{{\mathcal{V}}}
+\newcommand{\cW}{{\mathcal{W}}}   \newcommand{\cX}{{\mathcal{X}}}
+\newcommand{\cY}{{\mathcal{Y}}}   \newcommand{\cZ}{{\mathcal{Z}}}
+
+\newcommand{\hcP}{\hat{\mathcal{P}}}
+\newcommand{\hcQ}{\hat{\mathcal{Q}}}
+\newcommand{\hcR}{\hat{\mathcal{R}}}
+\newcommand{\hcL}{\hat{\mathcal{L}}}
+\newcommand{\hcM}{\hat{\mathcal{M}}} \newcommand{\hphi}{\hat{\phi}}
+\newcommand{\bbk}{\mathbb{k}}   \newcommand{\bfv}{\mathbf{v}}
+\newcommand{\bfnu}{\mathbf{nu}}  \newcommand{\hXX}{\hat{\mathbb{X}}}
+\newcommand{\bJ}{\mathbf{J}}
+
+\newcommand{\hD}{{\hat{D}}}   \newcommand{\hE}{{\hat{E}}}
+\newcommand{\hF}{{\hat{F}}}   \newcommand{\hH}{{\hat{H}}}
+\newcommand{\hY}{{\hat{Y}}}   \newcommand{\hP}{{\hat{P}}}
+\newcommand{\hT}{{\hat{T}}}   \newcommand{\hQ}{{\hat{Q}}}
+\newcommand{\hq}{{\hat{q}}}
+\newcommand{\hr}{{\hat{r}}}
+\newcommand{\hu}{{\hat{u}}}
+\newcommand{\hv}{{\hat{v}}}
+\newcommand{\hf}{{\hat{f}}}
+\newcommand{\hg}{{\hat{g}}}
+\newcommand{\hw}{{\hat{w}}}
+\newcommand{\hS}{{\hat{S}}}
+\newcommand{\hV}{{\hat{V}}}
+\newcommand{\hG}{{\hat{G}}}
+\newcommand{\hmu}{{\hat{\mu}}}
+\newcommand {\y}{\V{y}}
+\newcommand {\V}[1]{\mbox{\boldmath$#1$}}
+\newcommand{\iExp}{{\mathrm{iExp\,}}}
+
+\newcommand{\htheta}{{\hat{\theta}}}
+
+
+
+\newcommand{\htu}{{\hat{\tilde{u}}}}
+
+
+\newcommand{\hTR}{{\widehat{TR}}}
+\newcommand{\tsigma}{{\tilde{\sigma}}}
+\newcommand{\tphi}{{\tilde{\phi}}}
+\newcommand{\tpsi}{{\tilde{\psi}}}
+\newcommand{\tzeta}{{\tilde{\zeta}}}
+\newcommand{\tdelta}{{\tilde{\delta}}}
+\newcommand{\tgamma}{{\tilde{\gamma}}}
+\newcommand{\tGamma}{{\tilde{\Gamma}}}
+\newcommand{\tlog}{{\widetilde{\log}}}
+
+
+\newcommand{\txi}{{\tilde{\xi}}}
+\newcommand{\tomega}{{\tilde{\omega}}}
+\newcommand{\tH}{{\tilde{H}}}
+\newcommand{\tI}{{\tilde{I}}}
+
+\newcommand{\tX}{{\tilde{X}}}
+\newcommand{\tV}{{\tilde{V}}}
+\newcommand{\tz}{{\tilde{z}}}
+\newcommand{\ty}{{\tilde{y}}}
+\newcommand{\tx}{{\tilde{x}}}
+\newcommand{\te}{{\tilde{e}}}
+\newcommand{\tf}{{\tilde{f}}}
+\newcommand{\tg}{{\tilde{g}}}
+\newcommand{\tu}{{\tilde{u}}}
+\newcommand{\tm}{{\tilde{m}}}
+\newcommand{\tn}{{\tilde{n}}}
+\newcommand{\tilt}{{\tilde{t}}}
+\newcommand{\tT}{{\tilde{T}}}
+\newcommand{\tL}{{\tilde{L}}}
+\newcommand{\tQ}{{\tilde{Q}}}
+\newcommand{\tB}{{\tilde{B}}}
+\newcommand{\tC}{{\tilde{C}}}
+\newcommand{\tD}{{\tilde{D}}}
+\newcommand{\tU}{{\tilde{U}}}
+\newcommand{\utL}{{\underline{\tilde{L}}}}
+\newcommand{\tF}{{\tilde{F}}}\newcommand{\tilh}{{\tilde{h}}}
+\newcommand{\tk}{{\tilde{k}}}
+\newcommand{\tv}{{\tilde{v}}}
+\newcommand{\tw}{{\tilde{w}}}
+\newcommand{\bx}{\mathbf x}
+\newcommand{\bz}{\mathbf z}
+\newcommand{\bu}{\mathbf u}
+\newcommand{\bv}{\mathbf v}
+\newcommand{\bt}{\mathbf t}
+\newcommand{\bi}{\mathbf i}
+\newcommand{\bj}{\mathbf j}
+\newcommand{\bL}{\mathbf L}
+\newcommand{\bN}{\mathbf N}
+\newcommand{\bM}{\mathbf M}
+\newcommand{\bB}{\mathbf B}
+\newcommand{\bA}{\mathbf A}
+\newcommand{\tbz}{{\tilde{\mathbf z}}}
+\newcommand{\hbx}{\hat{\mathbf x}}
+\newcommand{\tcO}{{\tilde{\mathcal{O}}}}
+\newcommand{\tcC}{{\tilde{\mathcal{C}}}}
+\newcommand{\ocC}{{\overline{\mathcal{C}}}}
+\newcommand{\tcR}{{\tilde{\mathcal{R}}}}
+\newcommand{\tcA}{{\tilde{\mathcal{A}}}}
+
+
+
+
+
+
+
+
+\newcommand{\uL}{\underline L}
+\newcommand{\uM}{\underline M}
+\newcommand{\uE}{\underline E}
+
+\newcommand{\chA}{\check A}
+\newcommand{\chE}{\check E}
+\newcommand{\chL}{\check L}
+\newcommand{\chV}{\check V}
+\newcommand{\chv}{\check v}
+\newcommand{\chw}{\check w}
+\newcommand{\chW}{\check W}
+\newcommand{\chM}{\check M}
+\newcommand{\chQ}{\check Q}
+\newcommand{\chsigma}{\check\sigma}
+
+
+
+\newcommand{\uchL}{\underline{\check L}}
+
+
+
+
+
+
+\newcommand{\BA}{\mathbb{A}}  \newcommand{\BB}{\mathbb{B}}
+\newcommand{\CC}{\mathbb{C}}  \newcommand{\EE}{\mathbb{E}}
+\newcommand{\FF}{\mathbb{F}}  \newcommand{\HH}{\mathbb{H}}
+\newcommand{\JJ}{\mathbb{J}}  \newcommand{\LL}{\mathbb{L}}
+\newcommand{\NN}{\mathbb{N}}  \newcommand{\PP}{\mathbb{P}}
+\newcommand{\QQ}{\mathbb{Q}}  \newcommand{\RR}{\mathbb{R}}
+\newcommand{\TT}{\mathbb{T}}  \newcommand{\VV}{\mathbb{V}}
+\newcommand{\XX}{\mathbb{X}}  \newcommand{\WW}{\mathbb{W}}
+\newcommand{\ZZ}{\mathbb{Z}}
+
+\newcommand{\FM}{\mathfrak{M}}
+\newcommand{\fm}{\mathfrak{m}}
+
+
+\newcommand{\isom}{\cong}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\Grass}{\operatorname{Grass}}
+\newcommand{\coker}{\operatorname{coker}}
+\newcommand{\Hilb}{\operatorname{Hilb}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Quot}{\operatorname{Quot}}
+\newcommand{\Pic}{\operatorname{Pic}}
+\newcommand{\NS}{\operatorname{NS}}
+\newcommand{\Sym}{\operatorname{Sym}}
+\newcommand{\id}{\operatorname{I}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\surj}{\twoheadrightarrow}
+\newcommand{\inj}{\hookrightarrow}
+\newcommand{\gr}{\operatorname{gr}}
+\newcommand{\rk}{\operatorname{rk}}
+\newcommand{\reg}{\operatorname{reg}}
+\newcommand{\wt}{\widetilde}
+\newcommand{\del}{{\partial}}
+\newcommand{\delb}{{\overline\partial}}
+
+\newcommand{\oX}{{\overline X}}
+\newcommand{\oD}{{\overline D}}
+\newcommand{\ox}{{\overline x}}
+\newcommand{\ow}{{\overline w}}
+\newcommand{\oz}{{\overline z}}
+\newcommand{\oh}{{\overline{h}}}
+\newcommand{\oalpha}{{\overline \alpha}}
+
+
+
+
+
+\newcommand{\Res}{\operatorname{Res}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\pardeg}{\operatorname{par-deg}}
+\newcommand{\ad}{{ad\,}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\codim}{\operatorname{codim}}
+
+\hyphenation{pa-ra-bo-lic}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbT}{\mathbb{T}}
+\newcommand{\bbU}{\mathbb{U}}
+\newcommand{\bbZ}{\mathbb{Z}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbF}{\mathbb{F}}
+
+
+
+
+
+
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{theorem}[proposition]{Theorem}
+\newtheorem{lemma}[proposition]{Lemma}
+\newtheorem{conjecture}[proposition]{Conjecture}
+\newtheorem{corollary}[proposition]{Corollary}
+
+
+\theoremstyle{definition}
+\newtheorem{definition}[proposition]{Definition}
+\newtheorem{remark}[proposition]{Remark}
+\newtheorem{notation}[proposition]{Notation}
+\newtheorem{example}[proposition]{Example}
+\newtheorem{ex}{Exercise}[section]
+ 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title{CMI UG Calculus 2020 Assignment 2\\
+ {\tiny Higher-dimensional Riemann integrals, \underline{due 10 September}}}
+\date{\today}
+\maketitle
+
+\begin{enumerate}[wide, labelwidth=!, labelindent=0pt]
+
+\item  In my class notes I made the claim: ``Lower Riemann sums increase under refinement and upper Riemann sums decrease under refinement." Formulate this in ``notational" terms and prove it.
+
+\item A real-valued function $f$ on an interval $I$ is \emph{monotone} if it is either non-increasing or non-decreasing. Prove that if $I$ is closed and bounded and a function $f$ is monotone, then $f$ is integrable.
+
+Now we move to higher dimensions.
+
+\item \texttt{[This carries no marks; do not submit a solution]} In the notes we have a priori two definitions for the area of a rectangle $R=[a_1,b_1] \times [a_2,b_2]$: $area(R)=(b_2-a_2)(b_1-a_1)$ and
+$$
+area(R)=\int_R \mathbf{1} dx
+$$
+Check that the two coincide.
+
+\item Let $X$ be a metric space and $E$ a subset. Prove that $\partial E=\partial E^c$.
+
+\item Let $T \subset \bbR^2$ be a compact  subset with content zero. Show that $T$ is acceptable, and $area(T)=0$.
+
+Hint: Argue that $\partial T \subset T$ so $\partial T$ has content zero. So $T$ is acceptable.
+
+\item Let $R$ be the rectangle $\{(x,y)||x| \le 2,\ |y| \le 2\}$ and $S=\{(x,y)||x| \le 2,\ |y| \le 1\}$. Determine $\partial S$, $\partial R$ and $\partial(S,R)$.
+
+\item Let $S=L \cup R \subset \bbR^2$ where $L=\{(x,0)|1 \le |x| \le 2\}$ and 
+$R=\{(x,y)||x| \le 1,\ |y| <\le 1\}$. Is $S$ acceptable? What is $area(S)$?
+
+\item Derive the formula for area of a triangle.
+
+\item Show that the area of a closed disc or radius 1 is $\pi$. Use the formula for the area of a triangle and squeeze the disc between sets you can write down the area for. You can use any power series expression for $\pi$ that you know or can find. 
+
+\item As indicated in a footnote in the notes, a subset $S$ of $\bbR^2$ is \emph{Jordan measurable} if it is bounded, and for some rectangle $R \supset S$,
+$\chi_S$ is measurable. It is almost the same definition as that of an acceptable set except that Jordan measurable sets need not be closed. The theory of integrable functions, integration, and area goes through as for acceptable sets. 
+
+(See
+\url{https://math.libretexts.org/Bookshelves/Analysis/Book%3A_Introduction_to_Real_Analysis_(Lebl)/11%3A_Multivariable_Integral/11.05%3A_Jordan_Measurable_Sets}.
+
+What fails to go through? Give an easy example, starting with a Jordan measurable set that is not closed.
+
+\end{enumerate}
+
+
+
+\end{document}
+
+ 

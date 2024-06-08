@@ -1,0 +1,313 @@
+ \documentclass[11pt]{amsart}
+
+
+\usepackage[all]{xy}
+\usepackage{graphics}
+\usepackage{enumitem}
+\usepackage{epsfig}
+\usepackage{amsmath}
+\usepackage{amscd}
+\usepackage{tikz-cd}
+\usepackage{verbatim}
+\usepackage{pdfpages}
+%\usepackage{showkeys}
+\usepackage{amsfonts,latexsym,amssymb}
+\usepackage{parskip}
+\usepackage{MnSymbol}
+\usepackage{hyperref}
+
+\usepackage{mdwlist}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\cA}{{\mathcal{A}}}   \newcommand{\cB}{{\mathcal{B}}}
+\newcommand{\cC}{{\mathcal{C}}}   \newcommand{\cD}{{\mathcal{D}}}
+\newcommand{\cE}{{\mathcal{E}}}   \newcommand{\cF}{{\mathcal{F}}}
+\newcommand{\cG}{{\mathcal{G}}}   \newcommand{\cH}{{\mathcal{H}}}
+\newcommand{\cI}{{\mathcal{I}}}   \newcommand{\cJ}{{\mathcal{J}}}
+\newcommand{\cK}{{\mathcal{K}}}   \newcommand{\cL}{{\mathcal{L}}}
+\newcommand{\cM}{{\mathcal{M}}}   \newcommand{\cN}{{\mathcal{N}}}
+\newcommand{\cO}{{\mathcal{O}}}   \newcommand{\cP}{{\mathcal{P}}}
+\newcommand{\cQ}{{\mathcal{Q}}}   \newcommand{\cR}{{\mathcal{R}}}
+\newcommand{\cS}{{\mathcal{S}}}   \newcommand{\cT}{{\mathcal{T}}}
+\newcommand{\cU}{{\mathcal{U}}}   \newcommand{\cV}{{\mathcal{V}}}
+\newcommand{\cW}{{\mathcal{W}}}   \newcommand{\cX}{{\mathcal{X}}}
+\newcommand{\cY}{{\mathcal{Y}}}   \newcommand{\cZ}{{\mathcal{Z}}}
+
+\newcommand{\hcP}{\hat{\mathcal{P}}}
+\newcommand{\hcQ}{\hat{\mathcal{Q}}}
+\newcommand{\hcR}{\hat{\mathcal{R}}}
+\newcommand{\hcL}{\hat{\mathcal{L}}}
+\newcommand{\hcM}{\hat{\mathcal{M}}} \newcommand{\hphi}{\hat{\phi}}
+\newcommand{\bbk}{\mathbb{k}}   \newcommand{\bfv}{\mathbf{v}}
+\newcommand{\bfnu}{\mathbf{nu}}  \newcommand{\hXX}{\hat{\mathbb{X}}}
+\newcommand{\bJ}{\mathbf{J}}
+
+\newcommand{\hD}{{\hat{D}}}   \newcommand{\hE}{{\hat{E}}}
+\newcommand{\hF}{{\hat{F}}}   \newcommand{\hH}{{\hat{H}}}
+\newcommand{\hY}{{\hat{Y}}}   \newcommand{\hP}{{\hat{P}}}
+\newcommand{\hT}{{\hat{T}}}   \newcommand{\hQ}{{\hat{Q}}}
+\newcommand{\hq}{{\hat{q}}}
+\newcommand{\hr}{{\hat{r}}}
+\newcommand{\hu}{{\hat{u}}}
+\newcommand{\hv}{{\hat{v}}}
+\newcommand{\hf}{{\hat{f}}}
+\newcommand{\hg}{{\hat{g}}}
+\newcommand{\hw}{{\hat{w}}}
+\newcommand{\hS}{{\hat{S}}}
+\newcommand{\hV}{{\hat{V}}}
+\newcommand{\hG}{{\hat{G}}}
+\newcommand{\hmu}{{\hat{\mu}}}
+\newcommand {\y}{\V{y}}
+\newcommand {\V}[1]{\mbox{\boldmath$#1$}}
+\newcommand{\iExp}{{\mathrm{iExp\,}}}
+
+\newcommand{\htheta}{{\hat{\theta}}}
+
+
+
+\newcommand{\htu}{{\hat{\tilde{u}}}}
+
+
+\newcommand{\hTR}{{\widehat{TR}}}
+\newcommand{\tsigma}{{\tilde{\sigma}}}
+\newcommand{\tphi}{{\tilde{\phi}}}
+\newcommand{\tpsi}{{\tilde{\psi}}}
+\newcommand{\tzeta}{{\tilde{\zeta}}}
+\newcommand{\tdelta}{{\tilde{\delta}}}
+\newcommand{\tgamma}{{\tilde{\gamma}}}
+\newcommand{\tGamma}{{\tilde{\Gamma}}}
+\newcommand{\tlog}{{\widetilde{\log}}}
+
+
+\newcommand{\txi}{{\tilde{\xi}}}
+\newcommand{\tomega}{{\tilde{\omega}}}
+\newcommand{\tH}{{\tilde{H}}}
+\newcommand{\tI}{{\tilde{I}}}
+
+\newcommand{\tX}{{\tilde{X}}}
+\newcommand{\tV}{{\tilde{V}}}
+\newcommand{\tz}{{\tilde{z}}}
+\newcommand{\ty}{{\tilde{y}}}
+\newcommand{\tx}{{\tilde{x}}}
+\newcommand{\te}{{\tilde{e}}}
+\newcommand{\tf}{{\tilde{f}}}
+\newcommand{\tg}{{\tilde{g}}}
+\newcommand{\tu}{{\tilde{u}}}
+\newcommand{\tm}{{\tilde{m}}}
+\newcommand{\tn}{{\tilde{n}}}
+\newcommand{\tilt}{{\tilde{t}}}
+\newcommand{\tT}{{\tilde{T}}}
+\newcommand{\tL}{{\tilde{L}}}
+\newcommand{\tQ}{{\tilde{Q}}}
+\newcommand{\tB}{{\tilde{B}}}
+\newcommand{\tC}{{\tilde{C}}}
+\newcommand{\tD}{{\tilde{D}}}
+\newcommand{\tU}{{\tilde{U}}}
+\newcommand{\utL}{{\underline{\tilde{L}}}}
+\newcommand{\tF}{{\tilde{F}}}\newcommand{\tilh}{{\tilde{h}}}
+\newcommand{\tk}{{\tilde{k}}}
+\newcommand{\tv}{{\tilde{v}}}
+\newcommand{\tw}{{\tilde{w}}}
+\newcommand{\bx}{\mathbf x}
+\newcommand{\bz}{\mathbf z}
+\newcommand{\bu}{\mathbf u}
+\newcommand{\bv}{\mathbf v}
+\newcommand{\bt}{\mathbf t}
+\newcommand{\bi}{\mathbf i}
+\newcommand{\bj}{\mathbf j}
+\newcommand{\bL}{\mathbf L}
+\newcommand{\bN}{\mathbf N}
+\newcommand{\bM}{\mathbf M}
+\newcommand{\bB}{\mathbf B}
+\newcommand{\bA}{\mathbf A}
+\newcommand{\tbz}{{\tilde{\mathbf z}}}
+\newcommand{\hbx}{\hat{\mathbf x}}
+\newcommand{\tcO}{{\tilde{\mathcal{O}}}}
+\newcommand{\tcC}{{\tilde{\mathcal{C}}}}
+\newcommand{\ocC}{{\overline{\mathcal{C}}}}
+\newcommand{\tcR}{{\tilde{\mathcal{R}}}}
+\newcommand{\tcA}{{\tilde{\mathcal{A}}}}
+
+
+
+
+
+
+
+
+\newcommand{\uL}{\underline L}
+\newcommand{\uM}{\underline M}
+\newcommand{\uE}{\underline E}
+
+\newcommand{\chA}{\check A}
+\newcommand{\chE}{\check E}
+\newcommand{\chL}{\check L}
+\newcommand{\chV}{\check V}
+\newcommand{\chv}{\check v}
+\newcommand{\chw}{\check w}
+\newcommand{\chW}{\check W}
+\newcommand{\chM}{\check M}
+\newcommand{\chQ}{\check Q}
+\newcommand{\chsigma}{\check\sigma}
+
+
+
+\newcommand{\uchL}{\underline{\check L}}
+
+
+
+
+
+
+\newcommand{\BA}{\mathbb{A}}  \newcommand{\BB}{\mathbb{B}}
+\newcommand{\CC}{\mathbb{C}}  \newcommand{\EE}{\mathbb{E}}
+\newcommand{\FF}{\mathbb{F}}  \newcommand{\HH}{\mathbb{H}}
+\newcommand{\JJ}{\mathbb{J}}  \newcommand{\LL}{\mathbb{L}}
+\newcommand{\NN}{\mathbb{N}}  \newcommand{\PP}{\mathbb{P}}
+\newcommand{\QQ}{\mathbb{Q}}  \newcommand{\RR}{\mathbb{R}}
+\newcommand{\TT}{\mathbb{T}}  \newcommand{\VV}{\mathbb{V}}
+\newcommand{\XX}{\mathbb{X}}  \newcommand{\WW}{\mathbb{W}}
+\newcommand{\ZZ}{\mathbb{Z}}
+
+\newcommand{\FM}{\mathfrak{M}}
+\newcommand{\fm}{\mathfrak{m}}
+
+
+\newcommand{\isom}{\cong}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\Grass}{\operatorname{Grass}}
+\newcommand{\coker}{\operatorname{coker}}
+\newcommand{\Hilb}{\operatorname{Hilb}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Quot}{\operatorname{Quot}}
+\newcommand{\Pic}{\operatorname{Pic}}
+\newcommand{\NS}{\operatorname{NS}}
+\newcommand{\Sym}{\operatorname{Sym}}
+\newcommand{\id}{\operatorname{I}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\surj}{\twoheadrightarrow}
+\newcommand{\inj}{\hookrightarrow}
+\newcommand{\gr}{\operatorname{gr}}
+\newcommand{\rk}{\operatorname{rk}}
+\newcommand{\reg}{\operatorname{reg}}
+\newcommand{\wt}{\widetilde}
+\newcommand{\del}{{\partial}}
+\newcommand{\delb}{{\overline\partial}}
+
+\newcommand{\oX}{{\overline X}}
+\newcommand{\oD}{{\overline D}}
+\newcommand{\ox}{{\overline x}}
+\newcommand{\ow}{{\overline w}}
+\newcommand{\oz}{{\overline z}}
+\newcommand{\oh}{{\overline{h}}}
+\newcommand{\oalpha}{{\overline \alpha}}
+
+
+
+
+
+\newcommand{\Res}{\operatorname{Res}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\pardeg}{\operatorname{par-deg}}
+\newcommand{\ad}{{ad\,}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\codim}{\operatorname{codim}}
+
+\hyphenation{pa-ra-bo-lic}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbT}{\mathbb{T}}
+\newcommand{\bbU}{\mathbb{U}}
+\newcommand{\bbZ}{\mathbb{Z}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbF}{\mathbb{F}}
+
+
+
+
+
+
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{theorem}[proposition]{Theorem}
+\newtheorem{lemma}[proposition]{Lemma}
+\newtheorem{conjecture}[proposition]{Conjecture}
+\newtheorem{corollary}[proposition]{Corollary}
+
+
+\theoremstyle{definition}
+\newtheorem{definition}[proposition]{Definition}
+\newtheorem{remark}[proposition]{Remark}
+\newtheorem{notation}[proposition]{Notation}
+\newtheorem{example}[proposition]{Example}
+\newtheorem{ex}{Exercise}[section]
+ 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title{CMI UG Calculus 2020 Assignment 3\\
+ {\tiny Higher-dimensional Riemann integrals, \underline{due 12 October}}}
+\date{\today}
+\maketitle
+
+Most of the following are problems (with small changes) from Spivak, and you can seek hints in the book. Except possibly for the first, these are more than theoretical exercises; they  illustrate very useful techniques. Note that the problem 3-30 in the book (which I do not include below) deals with an example that shows why a ``converse'' to Fubini would be false. 
+
+\begin{enumerate}[wide, labelwidth=!, labelindent=0pt]
+
+\item (Problem 3-23 of Spivak.) Let $A,B$ be rectangles and $C \subset R \equiv A \times B$ a set of content zero. For $x \in A$, set $B_x \subset B$ be defined by $\{y \in B|(x,y) \in C\}$.
+Let $A' \subset A$ be the set
+\[
+\{x \in A|\textup{$B_x$ is NOT of content zero.}\}
+\]
+Show that $A'$ is a set of measure zero. 
+
+\item Let $I_i \subset \bbR,i=1,\dots,n$ be closed bounded intervals of nonzero length. Prove that $I_i$ is NOT of content zero, and an induction to show that 
+$I_1 \times I_2 \times \dots \times I_n$ is not of measure zero.
+
+\item Let $I=[a,b]$ and $f$ a continuous real-valued function on the square $I \times I$. Prove that
+\[
+\int_a^b(\int_a^y f(x,y)dx)dy=\int_a^b(\int_x^b f(x,y)dy)dx
+\] 
+
+\item (Equality of mixed partial derivatives using Fubini!) Let $f$ be a $C^2$ function on an open rectangle in $\bbR^2$, with $x,y$ being the coordinates. This means that the partial derivatives up to order two exist  and are continuous. Use Fubini to prove that the mixed partial derivatives are equal:
+$$
+\frac{\partial }{ \partial x} (\frac{\partial f}{ \partial y})= \frac{\partial }{ \partial y} (\frac{\partial f}{ \partial x})
+$$
+(You should know a proof using the mean-value theorem.)
+
+\item Let $R=[a_1,b_1] \times [a_2,b_2] \subset \bbR^2$ and $f$ a continuous real-valued function defined on $R$. Define the function $F$ on $R$ by
+\[
+F(x,y)=\int_{R_{(x,y)}} f
+\]
+where $R_{(x,y)} \subset R$ is the rectangle $[a_1,x] \times [a_2,y]$. Is $F$ continuous, is it $C^1$? 
+\[
+\textup{What are the partial derivatives $\frac{\partial F}{ \partial x}$ and $\frac{\partial F}{ \partial y}$?}
+\]
+
+\item (``Differentiation under the integral sign''; holds under weaker hypotheses.) Let $R=[a_1,b_1] \times [a_2,b_2] \subset \bbR^2$ and $f$ a $C^1$ real-valued function defined on an open set $U$ containing $R$. Let $G$ be defined on $[a_2,b_2]$ by
+\[
+G(y)=\int_{a_1}^{b_1} f(x,y)dx 
+\]
+Prove that
+\[
+G'(y)=\int_{a_1}^{b_1} \frac{\partial f}{\partial y} (x,y)dx 
+\]
+
+\item Problems 3-33 
+
+\item Problems 3-36
+
+ \end{enumerate}
+
+Problem 3-35 is particularly important, and was in the above list. We will talk about it in class and the notes.
+
+\end{document}
+
+ 

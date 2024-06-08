@@ -1,0 +1,28 @@
+P1
+Possible values are 1 and 17.
+Q \subset Q[\beta] \subset Q[\alpha] => [Q[\aplha]:Q] = 17 = [Q[\aplha]:Q[\beta][Q[\beta]:Q]
+17 = 17*1 = 1*17
+
+P2
+Let n = [F(b,c):F]
+By F \subset F[b] \subset F[b,c] -> n = 6x (x <= 15)
+By F \subset F[b] \subset F[b,c] -> n = 15y (y <= 6)
+This means n <= 90
+Possible values of n are -> 30,60,90 (multiples of lcm(6,15) <= 90)
+
+P3
+x^(5^4)-x, p = 5 and n = 4
+monic irred factors of deg 3 (4|4) in F_5[x]-> (5^4-5^2)/4 = 150
+monic irred factors of deg 3 (2|4) in F_5[x]-> 5(5-1)/2 = 10
+monic irred factors of deg 1 (1|3) in F_5[x]-> 5
+Total = 165
+(Using a hw4 problem)
+
+P5
+(i) 
+(ii)
+
+
+P6
+Root of x^5-1 in C are 1,a,a^2,a^3,a^4 where a = cis(2\pi/5)
+F[1,a,a^2,a^3,a^4] = F[1,a] (F = F_3)

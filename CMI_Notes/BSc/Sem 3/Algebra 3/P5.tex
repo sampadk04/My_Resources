@@ -1,0 +1,122 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{graphics}
+\graphicspath{./images/}
+\usepackage{url}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,color,amsbsy}
+\usepackage[pagebackref=true,colorlinks]{hyperref}
+\usepackage{tikz,pgf}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+\usepackage{xlop}
+\usepackage{soul}
+\usepackage{xcolor}
+\graphicspath{ {./Images/} }
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+
+\addtolength{\oddsidemargin}{-.75in}
+\addtolength{\evensidemargin}{-.75in}
+\addtolength{\textwidth}{1.75in}
+
+\addtolength{\topmargin}{-.875in}
+\addtolength{\textheight}{1.75in}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	citecolor=magenta
+}
+
+
+\definecolor{xdxdff}{rgb}{0.49019607843137253,0.49019607843137253,1.}
+\definecolor{zzttqq}{rgb}{0.6,0.2,0.}
+\definecolor{qqqqff}{rgb}{0.,0.,1.}
+
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{warning}[theorem]{Warning}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{recall}[theorem]{Recall}
+\newtheorem{observation}[theorem]{Observation}
+
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\p}{\mathbb{P}}
+\newcommand{\e}{\epsilon}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\V}{\mathbf{v}}
+\newcommand{\X}{\mathcal{X}}
+\newcommand{\n}{\mathcal{N}}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\adj}{adj}
+\DeclareMathOperator{\real}{Re}
+\DeclareMathOperator{\imag}{Im}
+\newcommand{\bigO}{\mathcal{O}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\bs}{\boldsymbol}
+\newcommand{\cl}{\overline}
+\newcommand{\inr}[1]{\left\langle #1 \right\rangle}
+\newcommand{\nrm}[1]{\left\| #1 \right\|}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\set}[1]{\left{ #1 \right}}
+\newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+
+\title{Problem 5}
+\author{Sampad Kumar Kar -- BMC201944}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{flushleft}
+
+First of all the roots of $x^5 - r$ in $\mathbb{C}$ are ${r^{\frac{1}{5}},\beta,\beta^2,\beta^3,\beta^4}$, where $\beta = r^{\frac{1}{5}}\alpha$ and $\alpha = e^{\frac{2\pi i}{5}}$.
+
+
+Now, $E = \mathbb{Q}(r^{\frac{1}{5}},\beta,\beta^2,\beta^3,\beta^4) = \mathbb{Q}(r^{\frac{1}{5}},\alpha)$.
+
+We want to calculate $[E:\mathbb{Q}]$.
+
+\medskip
+
+For this we use the following diamond-
+
+\medskip
+
+\includegraphics[scale = 0.2]{p5diamond.jpeg}
+
+\medskip
+
+Now, $[\mathbb{Q}(r^\frac{1}{5}):\mathbb{Q}] = 5$, because $min_{\mathbb{Q}}r^{\frac{1}{5}} = x^5 - r$, where $r = 201944 = 2^3.25243$ which is irreducible in $\mathbb{Q}[x]$ by rational root test, as none of the factors of $r = 201944$, satisfy the polynomial.
+
+\medskip
+
+Also, $[\mathbb{Q}(\alpha):\mathbb{Q}] = 4$, because $\alpha$ being the $5^{\text{th}}$ root of unity satisfies the polynomial $x^5 - 1 = 0$.
+
+So, $min_{\mathbb{Q}}\alpha | x^5 -1$. Now, $x^5-1 = (x-1)\phi_5(x)$, where $\phi$ is the cyclotomic polynomial, which is irreducible as well. Now, $\alpha$ is not a root of $x-1$, and $\mathbb{Q}[x]$ being a PID means $\alpha$ is a root of the irreducible $\phi_5(x)$, which means $min_{\mathbb{Q}}\alpha = \phi_5(x) = x^4 + x^3 + x^2 + x +1$ whose degree is $4$.
+
+\medskip
+
+Now, $gcd(4,5) = 1$, which means $[E:\mathbb{Q}] = [\mathbb{Q}(r^\frac{1}{5}):\mathbb{Q}][\mathbb{Q}(\alpha):\mathbb{Q}] = 20$
+
+\end{flushleft}
+\end{document}

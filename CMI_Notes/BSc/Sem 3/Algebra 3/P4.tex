@@ -1,0 +1,134 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{graphics}
+\graphicspath{./images/}
+\usepackage{url}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,color,amsbsy}
+\usepackage[pagebackref=true,colorlinks]{hyperref}
+\usepackage{tikz,pgf}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+\usepackage{xlop}
+\usepackage{soul}
+\usepackage{xcolor}
+\graphicspath{ {./Images/} }
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+
+\addtolength{\oddsidemargin}{-.75in}
+\addtolength{\evensidemargin}{-.75in}
+\addtolength{\textwidth}{1.75in}
+
+\addtolength{\topmargin}{-.875in}
+\addtolength{\textheight}{1.75in}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	citecolor=magenta
+}
+
+
+\definecolor{xdxdff}{rgb}{0.49019607843137253,0.49019607843137253,1.}
+\definecolor{zzttqq}{rgb}{0.6,0.2,0.}
+\definecolor{qqqqff}{rgb}{0.,0.,1.}
+
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{warning}[theorem]{Warning}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{recall}[theorem]{Recall}
+\newtheorem{observation}[theorem]{Observation}
+
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\p}{\mathbb{P}}
+\newcommand{\e}{\epsilon}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\V}{\mathbf{v}}
+\newcommand{\X}{\mathcal{X}}
+\newcommand{\n}{\mathcal{N}}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\adj}{adj}
+\DeclareMathOperator{\real}{Re}
+\DeclareMathOperator{\imag}{Im}
+\newcommand{\bigO}{\mathcal{O}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\bs}{\boldsymbol}
+\newcommand{\cl}{\overline}
+\newcommand{\inr}[1]{\left\langle #1 \right\rangle}
+\newcommand{\nrm}[1]{\left\| #1 \right\|}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\set}[1]{\left{ #1 \right}}
+\newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+
+\title{Problem 4}
+\author{Sampad Kumar Kar -- BMC201944}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{flushleft}
+
+We have $[F(\alpha):F] = r^2$, $r = 201944$ and an intermediate field $M$ s.t. $F \subset M \subset F(\alpha)$.
+
+\medskip
+
+\begin{claim}
+	$F(\alpha) = M(\alpha)$.
+\end{claim}
+
+\begin{proof}
+	Firstly, $F \subset M \implies F(\alpha) \subset M(\alpha)$.
+
+	Also, $M \subset F(\alpha) \ni \alpha \implies M(\alpha) \subset F(\alpha)$.
+\end{proof}
+
+We want to compute $deg(min_{M} \alpha) = [M(\alpha):M] = [F(\alpha):M]$.
+
+We also know that $[F(\alpha):F] = [F(\alpha):M][M:F] = r^2$.
+
+\medskip
+
+So, $[F(\alpha):M]|r^2$, which means all possible values of $min_{M} \alpha$ are just factors of $r^2 = 201944^2$ $= 2^6.25243^2$, which gives us $7.3 = 21$ possible values.
+
+\bigskip
+\bigskip
+
+Now, we consider an example of this.
+
+\medskip
+
+Let $F = \mathbb{F}_{p}$ for some prime $p$.
+
+We will always have an irreducible polynomial $f(x)$ of degree $r^2$ over $\mathbb{F}_{p}$. Consider its root $\alpha \in \mathbb{C}$. Now, attaching $\alpha$ to $\mathbb{F}_{p}$ gives us a field isomorphic to $\frac{\mathbb{F}_{p}[x]}{(f(x))}$ of cardinality $p^{r^2}$. Let's call this $F(\alpha)$.
+
+Now, for every $d|r^2$, consider $k = \frac{r^2}{d}$. Clearly, $k|r^2$, so $\exists$ $M \subset F(\alpha)$ s.t. $|M| = p^k$. Also $M$ contains $\mathbb{F}_{p} = F$ as well.
+
+\medskip
+
+Now, $[F(\alpha):F] = r^2$ and $[F(\alpha):M] = d$, which is any arbitrary factor of $r^2$.
+
+This serves as a reasonable example of my demostration in the first part.
+
+\end{flushleft}
+\end{document}

@@ -1,0 +1,25 @@
+r = 201944
+
+
+P1- 
+Generator of kernel of this map is - (x-r)^2 + 1.
+principal
+
+
+P2-
+p(x) = (x-3)(x-4) = x^2 -(3+4)x + 12 = x^2 + 0x + 5
+
+P3-
+201944+100 = 202044
+
+P4-
+4
+4*5*5 = 100
+
+P5-
+consider 2020^{1/r}.w, where w is one of the rth root of unity-
+2^r
+r
+
+P6-
+na
