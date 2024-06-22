@@ -5,3 +5,4 @@ Collection of my personal resources, collected and created by me.
 - [Online Courses and Notes](./Online_Courses/)
 - [Kaggle](./Kaggle/)
 - [LeetCode_Solutions](./LeetCode_Solutions/)
+- [Cheat Sheets](./Cheat_Sheets/)
