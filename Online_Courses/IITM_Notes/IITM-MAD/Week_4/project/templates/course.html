@@ -1,0 +1,21 @@
+{% extends "base.html" %} {% block head %}
+<title>Course {{course_id}}: Grades Assessment</title>
+{% endblock %} {% block body %}
+<div class="container">
+  <br /><br />
+  <h1 class="text-center">Welcome to the Course {{course_id}}!</h1>
+  <br />
+  <div class="text-center">
+    <a href="../static/images/course_id_graph.png" target="_blank">
+      <img
+        src="../static/images/course_id_graph.png"
+        class="rounded"
+        title="{{course_id}}'s analysis"
+        alt="{{course_id}}'s analysis"
+      />
+    </a>
+  </div>
+  <br /><br />
+  <a href="/" class="btn btn-primary" role="button">Return to Home</a>
+</div>
+{% endblock %}

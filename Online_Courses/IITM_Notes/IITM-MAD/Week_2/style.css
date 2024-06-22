@@ -1,0 +1,25 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+table {
+  border: 1px black solid;
+  /*This makes sure the border anound the cells in the table
+  merge together with each other*/
+  border-collapse: collapse;
+  text-align: center;
+}
+
+thead {
+  background-color: aqua;
+}
+
+th,
+td {
+  border: 1px black solid;
+}
+
+/*For every n-th child of the parent of 'tr' (given by 'tr:nth-child'), if it is even, we apply gray, else we don't do anything*/
+tr:nth-child(even) {
+  background-color: lightgray;
+}

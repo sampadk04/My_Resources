@@ -1,0 +1,30 @@
+Command Line Manipulation with Python
+
+# To execute a python file on cmd:
+% python <path_to_file>.py
+
+# To take arguments from command line:
+% python <path_to_file>.py arg1 arg2 arg3
+
+Inside python, the list 'sys.argv' holds all the arguments as type 'str'.
+python code:
+```
+import sys
+arg_list = sys.argv
+# arg_list = ['py_file_name.py', 'arg1', 'arg2', 'arg3']
+```
+
+
+# To use the 'main' function inside python file only, if called on command line. Example:
+
+python code:
+```
+def main():
+    print("Hello World!")
+
+if __name__ == "__main__":
+    # execute only if run as a script
+    main()
+```
+
+Now if we call the python file in cmd, it will only execute whatever's inside the main function.

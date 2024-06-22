@@ -1,0 +1,30 @@
+{% extends "base.html" %} {% block head %}
+<title>Student {{student_id}}: Grades Assessment</title>
+{% endblock %} {% block body %}
+<div class="container">
+  <br /><br />
+  <h1 class="text-center">Student {{student_id}}'s Grade Table</h1>
+  <br />
+  <!--Table-->
+  <table class="table table-bordered border-primary">
+    <thead>
+      <tr>
+        <th scope="col">Student ID</th>
+        <th scope="col">Course ID</th>
+        <th scope="col">Marks</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in range(n_student_data)%}
+      <tr>
+        <td>{{student_data[i][0]}}</td>
+        <td>{{student_data[i][1]}}</td>
+        <td>{{student_data[i][2]}}</td>
+      </tr>
+      {% endfor%}
+    </tbody>
+  </table>
+  <br /><br />
+  <a href="/" class="btn btn-primary" role="button">Return to Home</a>
+</div>
+{% endblock %}

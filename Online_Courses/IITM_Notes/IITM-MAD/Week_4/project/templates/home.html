@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% block head %}
+<title>Homepage: Grades Assessment</title>
+{% endblock %} {% block body %}
+<div class="container">
+  <br /><br />
+  <h1 class="text-center">Grades Assessment</h1>
+  <br />
+  <select class="form-select" name="selected_option" form="select_id_form">
+    <option selected>Select to Query Student/Course</option>
+    <option value="student">Student</option>
+    <option value="course">Course</option>
+  </select>
+  <br />
+  <form method="POST" id="select_id_form">
+    <div class="mb-3">
+      <label for="idInput" class="form-label">ID</label>
+      <input type="text" class="form-control" name="selected_id" id="idInput" />
+      <div id="idInputHelp" class="form-text">
+        Please input the valid Student/Course ID to query.
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+{% endblock %}

@@ -2,6 +2,13 @@
 
 This is a comprehensive set of week-wise notes created by me, based on the courses from IITM Online BSc degree.
 
+## Courses
+- [Machine Learning Techniques](./IITM-MLT/)
+- [Machine Learning Practice](./IITM-MLP/)
+- [Programming and Data Structures with Python](./IITM-PDSA/)
+- [Database Management Systems](./IITM-DBMS/)
+- [Modern Application Development](./IITM-MAD/)
+
 ## Contents
 
 ### IITM-MLT : Machine Learning Techniques

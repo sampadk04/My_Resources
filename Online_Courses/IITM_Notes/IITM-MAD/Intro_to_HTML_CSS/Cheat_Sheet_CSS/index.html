@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<!--Full CSS Tutorial: https://www.youtube.com/watch?v=yfoY53QXEnI-->
+
+<head>
+    <title>CSS Cheat Sheet</title>
+    
+    <!--Linking the styles/style.css file to this html document-->
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+<body>
+    <h1>Green Heading</h1>
+    
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque omnis voluptatum, ipsum adipisci facilis rem soluta autem natus eaque excepturi sequi doloremque possimus dignissimos iure totam hic. Deleniti, error blanditiis. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+
+    <!--
+        CSS Formatting using 'id' and 'class'. 'id' has to be unique for every element/block it is defined for, whereas 'class' is more like a template, whose styling can be used at multiple instances. For example, we use a 'class' to edit the 'div' block below. We first name the div block class.
+    -->
+
+
+    <!--We keep the whole div block inside the container.-->
+
+<div class="container-1">
+    <div class="box-1">
+        <h2>Box 1</h2>
+        This is a CSS Selector basic format.
+        <br>
+        <a href="images/css_selectors.jpeg" target="_blank">
+            <img src="images/css_selectors.jpeg" title="CSS Selectors" width="500">
+        </a>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni vitae temporibus laudantium sapiente iste porro ea aspernatur aliquid atque error nesciunt fugit illum animi dolores, deserunt voluptate est itaque accusamus.</p>
+    </div>
+</div><!--container-->
+
+<div class="container-1">
+    <div>
+        This is how colours can be selected in CSS.
+        <br>
+        <a href="images/css_colors.png" target="_blank">
+            <img src="images/css_colors.png" title="CSS Colors" width="200">
+        </a>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis blanditiis illum beatae inventore explicabo tempora ipsa maiores officiis, laborum quam quisquam! Voluptate impedit suscipit assumenda, magni dolorem quo aliquam soluta!</p>
+    </div>
+</div><!--container-->
+
+<div class="box-2">
+    <h2>Box Model in CSS</h2>
+    <p>This is the box model in CSS. This is how the containers margin, borders and paddings are defined. This can be used to draw borders, define padding to make the container block look good.</p>
+    <a href="images/css_margin_padding.png" target="_blank">
+        <img src="images/css_margin_padding.png" title="CSS Box Model" width="200">
+    </a>
+    <br>
+    <p>This is how we can set the margin/border/padding size for the top, right, bottom, left in various ways. In this image below we have illustrated this for margin in 3 different ways for a paragraph block.</p>
+    <a href="images/css_margin_padding_syntax.png" target="_blank">
+        <img src="images/css_margin_padding_syntax.png" title="CSS Margin Padding Syntax" width="400">
+    </a>
+</div>
+
+<div class="container-1">
+    <div class="category-1">
+        <h2>Categories and List Styling</h2>
+        <p>Here we use an explicit class 'category-1' to make use of the CSS styling for categories. For more details check the codes pertaining to 'category-1' in the styles.css file. Here goes an unordered list where each element is a list.</p>
+        <ul>
+            <li><a href="#">Category 1</a></li>
+            <li><a href="#">Category 2</a></li>
+            <li><a href="#">Category 3</a></li>
+            <li><a href="#">Category 4</a></li>
+        </ul>
+    </div>
+</div><!--container-->
+
+<div class="container-1">
+    <h2>Alignments and Floatings</h2>
+
+    <!--If they 'block-1' was at default setting (i.e. without any stylings, these blocks would have stacked up one above another vertically, as normal 'div' elements. But we will style these blocks to occur horizontally, one after another.)-->
+
+    <div class="block-1">
+        <h3>Heading 1</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam ipsam dolore magni nisi reprehenderit, deleniti nulla placeat rem maiores laboriosam quo, consequatur quibusdam quod culpa, nemo dicta tenetur atque libero.</p>
+    </div>
+
+    <div class="block-1">
+        <h3>Heading 2</h3>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum doloribus expedita, quasi obcaecati amet deserunt? Laudantium deserunt doloremque sed nulla ratione eum. Perferendis voluptates mollitia sapiente libero ea.</p>
+    </div>
+
+    <div class="block-1">
+        <h3>Heading 3</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut cumque fugiat pariatur similique nisi quis, vitae nihil officiis maiores odio architecto praesentium inventore libero voluptates quisquam enim officia! Eius, debitis!</p>
+    </div>
+
+    <!--CAUTION! After using floats, make sure we CLEAR up!
+    We clear floats using yet another 'div' block!-->
+    <div class="clr"></div>
+</div><!--container-->
+
+<div class="container-1">
+    <h2>Sidebar</h2>
+
+    <!--This time we use id's instead of a class.-->
+    <div id="main-block">
+        <h3>Main Block Heading</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe laboriosam sint adipisci quibusdam voluptate praesentium, officia, tempore dolorem repellat impedit totam! Quos explicabo inventore dolore veniam, doloremque.</p>
+    </div>
+
+    <div id="sidebar">
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni quis sunt nihil, reiciendis numquam harum repellat necessitatibus.</p>
+    </div>
+
+    <!--CAUTION! After using floats, make sure we CLEAR up!
+    We clear floats using yet another 'div' block!-->
+    <div class="clr"></div>
+</div><!--container-->
+
+<div class="container-1">
+    <h2>CSS Selectors and Heirarchy</h2>
+    <p> CSS Selectors are ways to find components within the document and ways to define them as per needed.</p>
+
+    <form id="form-1">
+        <p>Enter the name:</p>
+        <input type="text"/>
+        
+        <div id="age">
+            <p>Enter the age:</p>
+            <input type="number"/>
+        </div>
+        <div id="email">
+            <p>Enter your email:</p>
+            <input type="email"/>
+        </div>
+    </form>
+</div><!--container-->
+  
+</body>
+</html>

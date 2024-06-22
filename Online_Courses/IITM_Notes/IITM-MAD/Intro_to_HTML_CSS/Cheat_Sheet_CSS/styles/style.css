@@ -1,0 +1,269 @@
+/* This is an external css styling, which will be applied
+to ./index.html file*/
+
+/*Body*/
+
+body {
+  /*Background*/
+
+  /* This sets the background colour of the whole body to the specified color.*/
+  background-color: lightgray;
+
+  /*Fonts*/
+
+  /*This changes the font-family of the whole body to the specified font.*/
+  font-family: Arial, Helvetica, sans-serif;
+
+  /*We can also control the font-size, by default it is 16px.*/
+  font-size: 16px;
+
+  /*We can change the type to: Bold/Italics by using font-weight.*/
+  font-weight: normal;
+
+  /*
+  All of these can be done in a single line by:
+  font: normal 16px Arial, Helvetica, sans-serif;
+  */
+
+  /*Line Height*/
+
+  /*This will change the space between the lines. We set it to 1.5 times the normal.*/
+  line-height: 1.5em;
+}
+
+/* This changes the colour of all 'h1' headers to the specified color.*/
+h1 {
+  color: green;
+}
+
+/*Clear*/
+
+/*CAUTION! After using floats, make sure we CLEAR up!
+It's a good practice to define this on the top.
+This 'div' block clears up any floats above it.*/
+.clr {
+  clear: both;
+}
+
+/*Class*/
+
+/*Div Containers*/
+
+/*We create a container class to keep elements in a certain container to keep a certain formatting.*/
+.container-1 {
+  /*width can be set to certain no. of pixel.
+  More popular method is to use percentage. This dynamically adapts width based on the window size.*/
+  width: 80%;
+  margin: auto;
+  padding: auto;
+}
+
+/*Normal Div Class*/
+
+/*To select a class, with <class_name> we use '.class_name'*/
+/*We edit the class named 'box-1'*/
+.box-1 {
+  background-color: aliceblue;
+  color: blue;
+}
+
+/*Margin, Border, Padding*/
+.box-2 {
+  background-color: antiquewhite;
+  color: rgb(129, 14, 236);
+
+  margin: 2em;
+  /*attribute: size, color, type 
+  type can be (solid, wedge) etc.*/
+  border: 0.5em royalblue solid;
+  padding: 2em;
+}
+
+/*Box Headings*/
+
+/*We can style how headings will look specific to a box*/
+/*This heading has been applied on 'Box Model in CSS' heading.*/
+.box-2 h2 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: bold;
+  font-style: italic;
+  text-decoration: underline;
+  text-align: center;
+  color: rgb(110, 5, 5);
+}
+
+/*Categories*/
+
+/*Here we add styling to the 'category-1' class.
+We do this by editing the overall physical layout, headings, 'ul' and the <a href> links*/
+
+.category-1 {
+  background-color: aliceblue;
+  color: black;
+
+  border: 0.5em burlywood dashed;
+  border-radius: 2em;
+  padding: 1em;
+}
+
+.category-1 h2 {
+  font-family: "Courier New", Courier, monospace;
+  text-align: center;
+  text-decoration: underline;
+  color: rgb(100, 26, 150);
+}
+
+/*List Styling*/
+
+/*This adds styling to the whole 'ul' block*/
+.category-1 ul {
+  padding: 5%;
+  list-style: square;
+}
+
+/*This adds styling to each individual 'li' block*/
+.category-1 li {
+  border: 1px dotted;
+  padding: 2px;
+}
+
+/*Link Styling*/
+
+/*We can edit all the links, at the same time by just mentioning the styling elements inside a{}, but I am doing the stylings local to this 'category-1' class.*/
+.category-1 a {
+  /*setting this to 'none' will remove the underline under links*/
+  text-decoration: underline;
+  color: blue;
+}
+
+/*This shows the specified color when the mouse hovers over the link*/
+.category-1 a:hover {
+  color: red;
+}
+
+/*This shows the color of link when it is clicked*/
+.category-1 a:active {
+  color: darkgreen;
+}
+
+/*This shows the color of link after it is visited once*/
+.category-1 a:visited {
+  color: rgb(100, 0, 95);
+}
+
+/*Floating and Alignment of Blocks*/
+
+.block-1 {
+  float: left;
+  /*Since we will be having 3 blocks in one horizontal space we are setting this to 33.33% width*/
+  width: 33.33%;
+  /*This makes sure margin,border, padding are considered for the width*/
+  box-sizing: border-box;
+
+  margin: auto;
+  border: 0.3em blueviolet solid;
+  padding: 0.75em;
+}
+
+.block-1 h3 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+}
+
+/*CAUTION! After using floats, make sure we CLEAR up!
+It's a good practice to define this on the top.
+This 'div' block clears up any floats above it.*/
+.clr {
+  clear: both;
+}
+
+/*Main Block and Sidebar*/
+
+/*This time instead of defining the styling on the class, we use the ids to define the styling. We give the 'main-block' 70% width aligning to the left and 'sidebar' 30% width aligning to the right*/
+
+#main-block {
+  float: left;
+  width: 70%;
+
+  margin: auto;
+  border: none;
+  padding: 0.5em;
+
+  box-sizing: border-box;
+}
+
+#sidebar {
+  float: right;
+  width: 30%;
+
+  background-color: antiquewhite;
+
+  margin: auto;
+  border: 0.2em darkmagenta dashed;
+  border-radius: 1em;
+  padding: 0.5em;
+
+  box-sizing: border-box;
+}
+
+/*CSS Selectors*/
+
+/*
+We will learn to manipulate the components via CSS by using CSS Selectors, to select and manipulate the required element of the HTML document.
+
+First is tag based selecting, which we have already looked at extensively before. We select the elements based on their tags, class or ids.
+
+Second is relationship based selection. There are 2 types of relationships: descendants and children. We create forms and explain the heirarchy of descendants and children based on that. The first 'p' and 'input' tags are direct descendant to the 'form' tag with id 'form-1' and hence it's 'children'. The second 'p' and 'input' tags are direct descendants to the 'div' tag with id 'age', hence they are also descendants to the 'form' tag but not it's children. The same is the case with the third 'p' and 'input' tag with id 'email'.
+
+We focus on the follwoing block of code:
+    <form id="form-1">
+        <p>Enter the name:</p>
+        <input type="text"/>
+        
+        <div id="age">
+            <p>Enter the age:</p>
+            <input type="number"/>
+        </div>
+        <div id="email">
+            <p>Enter your email:</p>
+            <input type="email"/>
+        </div>
+    </form>
+*/
+
+/*Here, we style all the 'input' tag descendants of the 'form' tag with id 'form-1' at the same time.
+
+If we wanted to edit just the children 'input' tag, i.e. the one with type 'text', we could have used the following-
+#form-1 > input{
+  background-color: aquamarine;
+}
+This would have affected only the first text box.
+*/
+
+#form-1 input {
+  background-color: aquamarine;
+}
+
+/*Psuedo Class Elements*/
+
+/*
+Based on structure and state of the element, we can use CSS Selectors.
+Example: Based on structure, we can select the nth-child (which are even).
+Example: Based on state, whether the a given element is selected, or whether the mouse is over the element or not etc.
+*/
+
+#form-1 input:hover {
+  background-color: lightpink;
+}
+
+/*Attribute based Selection*/
+
+/*
+Every tag has an attribute. For example 'id = "form-1"' is an attribute of the tag <form>. Similarly 'type="text"' is an attribute of the first 'input' tag.
+
+We can do attribute based selection in the following ways:
+*/
+
+#form-1 input[type="text"] {
+  background-color: bisque;
+}
